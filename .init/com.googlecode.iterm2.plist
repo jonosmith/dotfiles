@@ -54,9 +54,9 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>756 110 618 338 0 0 1440 878 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>548 378 796 473 0 0 1440 878 </string>
+	<string>489 443 928 394 0 0 1440 878 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>198 204 570 402 0 0 1440 878 </string>
+	<string>306 184 976 432 0 0 1440 878 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>176 70 570 452 0 0 1440 878 </string>
 	<key>New Bookmarks</key>
@@ -160,12 +160,16 @@
 			</dict>
 			<key>Ansi 4 Color</key>
 			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.73333334922790527</real>
+				<real>0.794281005859375</real>
+				<key>Color Space</key>
+				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.0</real>
+				<real>0.28794457838155058</real>
 				<key>Red Component</key>
-				<real>0.0</real>
+				<real>0.17961493693292141</real>
 			</dict>
 			<key>Ansi 5 Color</key>
 			<dict>
