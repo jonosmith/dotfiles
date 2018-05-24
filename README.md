@@ -1,20 +1,18 @@
 # My Dotfiles
 
+Clone this repository then:
 
-## Fonts
-* [Fira Code](https://github.com/tonsky/FiraCode) - a monospaced font with ligatures
+**Install all applications**
+```
+./install.sh
+```
 
+**Sync dotfiles to home folder**
+```
+./sync.sh
+```
 
-## Terminal
-
-[Hyper terminal](https://hyper.is/) with [hyper-oceans16](https://github.com/henrikdahl/hyper-oceans16) theme
-
-
-## IDE
-* Visual Studio Code
-    * [Bimbo](https://marketplace.visualstudio.com/items?itemName=pawelgrzybek.bimbo-theme) theme
-    * Fira Code font
-* IntelliJ
-    * Material Theme
-    * Oceanic Next editor theme
-    * Fira Code font
+**Update system and application settings on macOS**
+```
+./macosdefaults.sha
+```
