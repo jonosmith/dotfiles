@@ -19,6 +19,7 @@ if [[ $answer != "n" ]] && [[ $answer != "N" ]] ; then
     # The regular brew installable packages
     # -------------------------------------------------------------------------
     brew install \
+        exa \
         git \
         node \
         watchman
