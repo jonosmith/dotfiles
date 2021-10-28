@@ -15,63 +15,60 @@ fi
 
 echo -n "Install all base packages (Y/n) => "; read answer
 if [[ $answer != "n" ]] && [[ $answer != "N" ]] ; then
-    # -------------------------------------------------------------------------
-    # The regular brew installable packages
-    # -------------------------------------------------------------------------
     brew install \
+        mas \
         exa \
         git \
         node \
-        watchman
-
-    brew cask install \
+        watchman \
         iterm2 \
-        chromedriver \
-        visual-studio-code \
-        sourcetree \
-        alfred \
         dash \
-        skitch \
         slack \
-        spectacle \
-        postman
+        postman \
+        visual-studio-code \
+        cleanshot \
+        awscli \
+        docker \
+        private-internet-access \
+        istat-menus \
+        calibre \
+        dictionaries \
+        daisydisk \
+        transmission
+    
+    mas install 441258766       # Magnet
+    mas install 1440147259      # Adguard for Safari
+fi
 
-    # -------------------------------------------------------------------------
-    # Terminal
-    # -------------------------------------------------------------------------
+echo -n "Install work apps? (Y/n) => "; read answer
+if [[ $answer != "n" ]] && [[ $answer != "N" ]] ; then
+    brew install \
+        microsoft-office \
+        microsoft-teams \
+        zoom
+fi
+
+echo -n "Install terminal packages (Y/n) => "; read answer
+if [[ $answer != "n" ]] && [[ $answer != "N" ]] ; then
+    # ZSH
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+    # ZSH plugins
     git clone https://github.com/zsh-users/zsh-autosuggestions \
         ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git \
         ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-
-    # Spaceship prompt
-    git clone \
-        https://github.com/denysdovhan/spaceship-prompt.git \
-        "$ZSH_CUSTOM/themes/spaceship-prompt" \
-        && \
-        ln -s \
-            "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" \
-            "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
-
-    # -------------------------------------------------------------------------
-    # Other
-    # -------------------------------------------------------------------------
-    
-    # Fonts
-    brew tap caskroom/fonts && brew cask install font-fira-code
+    git clone https://github.com/agkozak/zsh-z $ZSH_CUSTOM/plugins/zsh-z
+    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 fi
 
-echo -n "Install haskell related tools? (y/N) => "; read haskell
-if [[ $haskell = "y" ]] || [[ $haskell = "Y" ]] ; then
-    brew cask install haskell-platform
-    stack setup
-    stack install hlint ghc-mod hdevtools
-fi
+echo -n "Install fonts (Y/n) => "; read answer
+if [[ $answer != "n" ]] && [[ $answer != "N" ]] ; then
+    brew tap homebrew/cask-fonts
 
-echo -n "Install Elm related tools? (y/N) => "; read go
-if [[ $go = "y" ]] || [[ $go = "Y" ]] ; then
-    brew cask install elm-platform
+    brew install \
+        font-sauce-code-pro-nerd-font \
+        font-jetbrains-mono
 fi
 
 # Remove outdated versions from the cellar.
