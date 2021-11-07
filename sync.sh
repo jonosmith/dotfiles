@@ -12,6 +12,8 @@ function doIt() {
 		--exclude "macosdefaults.sh" \
 		--exclude "README.md" \
 		--exclude "sync.sh" \
+		--exclude ".idea" \
+		--exclude ".vscode"
 		-avh --no-perms . ~;
 	source ~/.zshrc;
 }
