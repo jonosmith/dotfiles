@@ -34,7 +34,8 @@ if [[ $answer != "n" ]] && [[ $answer != "N" ]] ; then
         calibre \
         dictionaries \
         daisydisk \
-        transmission
+        transmission \
+        karabiner-elements
     
     mas install 441258766       # Magnet
     mas install 1440147259      # Adguard for Safari
