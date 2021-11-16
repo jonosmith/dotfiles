@@ -9,17 +9,10 @@ set number
 :set autoindent
 :set smartindent
 
-" true color
-if exists("&termguicolors") && exists("&winblend")
-  " syntax enable
-  set termguicolors
-  set winblend=0
-  set wildoptions=pum
-  set pumblend=5
-  " set background=light
+" Set theme
+set t_Co=256
+set background=light
+colorscheme PaperColor
+set laststatus=2
+let g:lightline = { 'colorscheme': 'PaperColor' }
 
-  " Use NeoSolarized
-  let g:neosolarized_termtrans=1
-  runtime ./colors/NeoSolarized.vim
-  colorscheme NeoSolarized
-endif

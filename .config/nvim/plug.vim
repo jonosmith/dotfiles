@@ -14,13 +14,22 @@ call plug#begin(stdpath('data') . '/plugged')
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'kyazdani42/nvim-web-devicons'
-  Plug 'hoob3rt/lualine.nvim'
   Plug 'preservim/nerdtree'
   Plug 'folke/trouble.nvim'
   Plug 'ahmedkhalf/project.nvim'
   Plug 'dyng/ctrlsf.vim'
   Plug 'williamboman/nvim-lsp-installer'
+
+  Plug 'itchyny/lightline.vim'
+
+  " Markdown
+  Plug 'godlygeek/tabular'
+  Plug 'plasticboy/vim-markdown'
   Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-repeat'
+
+  " Themes
+  Plug 'NLKNguyen/papercolor-theme'
 call plug#end()
