@@ -40,7 +40,10 @@ if [[ $answer != "n" ]] && [[ $answer != "N" ]] ; then
     
     mas install 441258766       # Magnet
     mas install 1440147259      # Adguard for Safari
-    
+
+    # Install nvchad config for neovim
+    git clone https://github.com/NvChad/NvChad ~/.config/nvim
+
     # Neovim - vim-plug
     sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
