@@ -1,18 +1,25 @@
 vim.g.mapleader = " "
 
 -- Being main initialization
-require "init"
+require("init")
 
-local o = vim.o
-local wo = vim.wo
+local o = vim.o -- editor options (:set)
+local wo = vim.wo -- window scoped options (:setlocal)
 
 -- Basic config
-o.tabstop = 2
-o.softtabstop = 2
-o.shiftwidth = 2
-o.expandtab = true
+o.tabstop = 2 -- a tab is 2 spaces
+o.softtabstop = 2 -- when hitting <BS>, pretend like a tab is removed, even if spaces
+o.shiftwidth = 2 -- number of spaces to use for autoindenting
+o.expandtab = true -- expand tabs to spaces
+o.smartcase = true
+o.autoindent = true
+o.copyindent = true
+
+o.history = 1000
+o.undolevels = 1000
+
 wo.number = true -- display line numbers
-wo.signcolumn = 'yes'
+wo.signcolumn = "yes"
 wo.wrap = false
 
 -- Set theme

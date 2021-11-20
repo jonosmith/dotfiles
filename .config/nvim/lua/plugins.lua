@@ -1,116 +1,119 @@
 local execute = vim.api.nvim_command
 local fn = vim.fn
 
-local install_path = fn.stdpath("data").."/site/pack/packer/opt/packer.nvim"
+local install_path = fn.stdpath("data") .. "/site/pack/packer/opt/packer.nvim"
 
 if fn.empty(fn.glob(install_path)) > 0 then
-	execute("!git clone https://github.com/wbthomason/packer.nvim "..install_path)
-    execute "packadd packer.nvim"
+	execute("!git clone https://github.com/wbthomason/packer.nvim " .. install_path)
+	execute("packadd packer.nvim")
 end
 
 vim.cmd("packadd packer.nvim")
 
-local packer = require"packer"
-local util = require"packer.util"
+local packer = require("packer")
+local util = require("packer.util")
 
 packer.init({
-  package_root = util.join_paths(vim.fn.stdpath("data"), "site", "pack")
+	package_root = util.join_paths(vim.fn.stdpath("data"), "site", "pack"),
 })
 
 return packer.startup(function(use)
-  use {
-    "neovim/nvim-lspconfig",
-    config = require"configs.lspconfig"
-  }
+	use({
+		"neovim/nvim-lspconfig",
+		config = require("configs.lspconfig"),
+	})
 
-  use "folke/lsp-colors.nvim"
+	use("folke/lsp-colors.nvim")
 
-  use "williamboman/nvim-lsp-installer"
+	use("williamboman/nvim-lsp-installer")
 
-  use {
-    "akinsho/bufferline.nvim",
-    config = require'configs.bufferline'
-  }
+	use({
+		"akinsho/bufferline.nvim",
+		config = require("configs.bufferline"),
+	})
 
-  use {
-    "nvim-treesitter/nvim-treesitter",
-    run = ':TSUpdate'
-  }
+	use({
+		"nvim-treesitter/nvim-treesitter",
+		run = ":TSUpdate",
+		config = require("configs.treesitter"),
+	})
 
-  use {
-    "hrsh7th/nvim-cmp",
-    config = require'configs.nvim-cmp'
-  }
+	-- use("jparise/vim-graphql")
 
-  use {
-    "terrortylor/nvim-comment",
-    config = require"configs.comment"
-  }
+	use({
+		"hrsh7th/nvim-cmp",
+		config = require("configs.nvim-cmp"),
+	})
 
-  use "hrsh7th/cmp-nvim-lsp"
+	use({
+		"terrortylor/nvim-comment",
+		config = require("configs.comment"),
+	})
 
-  use "hrsh7th/cmp-buffer"
+	use("hrsh7th/cmp-nvim-lsp")
 
-  use "hrsh7th/cmp-path"
+	use("hrsh7th/cmp-buffer")
 
-  use {
-    "weilbith/nvim-code-action-menu",
-    cmd = 'CodeActionMenu'
-  }
+	use("hrsh7th/cmp-path")
 
-  use "nvim-lua/popup.nvim"
+	use({
+		"weilbith/nvim-code-action-menu",
+		cmd = "CodeActionMenu",
+	})
 
-  use "kyazdani42/nvim-web-devicons"
+	use("nvim-lua/popup.nvim")
 
-  use {
-    "kyazdani42/nvim-tree.lua",
-    config = require"configs.nvim-tree"
-  }
+	use("kyazdani42/nvim-web-devicons")
 
-  use "folke/trouble.nvim"
+	use({
+		"kyazdani42/nvim-tree.lua",
+		config = require("configs.nvim-tree"),
+	})
 
-  use {
-    "ahmedkhalf/project.nvim",
-    config = require"configs.project"
-  }
+	use("folke/trouble.nvim")
 
-  use "dyng/ctrlsf.vim"
+	use({
+		"ahmedkhalf/project.nvim",
+		config = require("configs.project"),
+	})
 
-  use "tpope/vim-fugitive"
+	use("dyng/ctrlsf.vim")
 
-  use "itchyny/lightline.vim"
+	use("tpope/vim-fugitive")
 
-  use {
-    "editorconfig/editorconfig-vim",
-    config = require"configs.editorconfig"
-  }
+	use("itchyny/lightline.vim")
 
- use {
-    "nvim-telescope/telescope.nvim",
-    requires = {
-      { "nvim-lua/plenary.nvim" },
-      { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
-      { "nvim-telescope/telescope-media-files.nvim" }
-    },
-    config = require"configs.telescope",
- }
+	use({
+		"editorconfig/editorconfig-vim",
+		config = require("configs.editorconfig"),
+	})
 
-  -- Markdown
-  use "godlygeek/tabular"
-  use "plasticboy/vim-markdown"
-  use {
-    "iamcco/markdown-preview.nvim",
-    run = "cd app && npm install",
-    setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }
-  }
+	use({
+		"nvim-telescope/telescope.nvim",
+		requires = {
+			{ "nvim-lua/plenary.nvim" },
+			{ "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
+			{ "nvim-telescope/telescope-media-files.nvim" },
+		},
+		config = require("configs.telescope"),
+	})
 
-  use "tpope/vim-surround"
-  use "tpope/vim-repeat"
+	-- Markdown
+	use("godlygeek/tabular")
+	use("plasticboy/vim-markdown")
+	use({
+		"iamcco/markdown-preview.nvim",
+		run = "cd app && npm install",
+		setup = function()
+			vim.g.mkdp_filetypes = { "markdown" }
+		end,
+		ft = { "markdown" },
+	})
 
-  -- Themes
-  use "NLKNguyen/papercolor-theme"
-  use "overcache/NeoSolarized"
+	use("tpope/vim-surround")
+	use("tpope/vim-repeat")
 
-
-  end
-)
+	-- Themes
+	use("NLKNguyen/papercolor-theme")
+	use("overcache/NeoSolarized")
+end)
