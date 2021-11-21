@@ -18,70 +18,75 @@ packer.init({
 })
 
 return packer.startup(function(use)
+	-- LSP stuff
 	use({
 		"neovim/nvim-lspconfig",
 		config = require("configs.lspconfig"),
 	})
-
 	use("folke/lsp-colors.nvim")
-
 	use("williamboman/nvim-lsp-installer")
+	use("simrat39/symbols-outline.nvim")
 
+	-- Completion
+	use({
+		"hrsh7th/nvim-cmp",
+		config = require("configs.nvim-cmp"),
+	})
+	use("hrsh7th/cmp-nvim-lsp")
+	use("hrsh7th/cmp-buffer")
+	use("hrsh7th/cmp-path")
+
+	-- Sidebar File Explorer
+	use({
+		"kyazdani42/nvim-tree.lua",
+		config = require("configs.nvim-tree"),
+	})
+
+	-- Tabs
 	use({
 		"akinsho/bufferline.nvim",
 		config = require("configs.bufferline"),
 	})
 
+	-- Bottom status bar
+	use("itchyny/lightline.vim")
+
+	-- Syntax highlighting
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
 		config = require("configs.treesitter"),
 	})
 
-	-- use("jparise/vim-graphql")
+	use({ "hrsh7th/vim-vsnip" })
 
-	use({
-		"hrsh7th/nvim-cmp",
-		config = require("configs.nvim-cmp"),
-	})
-
+	-- Helper for commenting lines
 	use({
 		"terrortylor/nvim-comment",
 		config = require("configs.comment"),
 	})
 
-	use("hrsh7th/cmp-nvim-lsp")
-
-	use("hrsh7th/cmp-buffer")
-
-	use("hrsh7th/cmp-path")
-
 	use({
 		"weilbith/nvim-code-action-menu",
-		cmd = "CodeActionMenu",
 	})
 
 	use("nvim-lua/popup.nvim")
 
+	-- Documenting keymaps
+	use({
+		"folke/which-key.nvim",
+		config = require("configs.whichkey"),
+	})
+
 	use("kyazdani42/nvim-web-devicons")
 
 	use({
-		"kyazdani42/nvim-tree.lua",
-		config = require("configs.nvim-tree"),
-	})
-
-	use("folke/trouble.nvim")
-
-	use({
 		"ahmedkhalf/project.nvim",
+		requires = { "nvim-telescope/telescope.nvim" },
 		config = require("configs.project"),
 	})
 
 	use("dyng/ctrlsf.vim")
-
-	use("tpope/vim-fugitive")
-
-	use("itchyny/lightline.vim")
 
 	use({
 		"editorconfig/editorconfig-vim",
@@ -98,6 +103,12 @@ return packer.startup(function(use)
 		config = require("configs.telescope"),
 	})
 
+	use("folke/trouble.nvim")
+
+	-- Git
+	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
+	use("tpope/vim-fugitive")
+
 	-- Markdown
 	use("godlygeek/tabular")
 	use("plasticboy/vim-markdown")
@@ -112,8 +123,15 @@ return packer.startup(function(use)
 
 	use("tpope/vim-surround")
 	use("tpope/vim-repeat")
+	use("bkad/CamelCaseMotion")
+
+	-- Delete buffers without losing window layout
+	use("famiu/bufdelete.nvim")
 
 	-- Themes
+	use("shaunsingh/solarized.nvim")
+	use("folke/tokyonight.nvim")
 	use("NLKNguyen/papercolor-theme")
 	use("overcache/NeoSolarized")
+	use("mhartington/oceanic-next")
 end)
