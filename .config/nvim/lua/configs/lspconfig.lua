@@ -119,7 +119,8 @@ lsp_installer.on_server_ready(function(server)
 					args = { "--stdin", "--stdin-filename", "%filename", "--fix-to-stdout" },
 				},
 				prettier = {
-					command = "prettier_d_slim",
+				  -- command = "prettier_d_slim",
+					command = "./node_modules/bin/prettier",
 					rootPatterns = { ".git" },
 					args = { "--tab-width 2", "--stdin", "--stdin-filepath", "%filename" },
 				},
