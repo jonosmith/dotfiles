@@ -49,7 +49,11 @@ return packer.startup(function(use)
 	})
 
 	-- Bottom status bar
-	use("itchyny/lightline.vim")
+	use({
+		"nvim-lualine/lualine.nvim",
+		requires = { "kyazdani42/nvim-web-devicons", opt = true },
+		config = require("configs.lualine"),
+	})
 
 	-- Syntax highlighting
 	use({
@@ -129,9 +133,15 @@ return packer.startup(function(use)
 	use("famiu/bufdelete.nvim")
 
 	-- Themes
-	use("shaunsingh/solarized.nvim")
 	use("folke/tokyonight.nvim")
 	use("NLKNguyen/papercolor-theme")
 	use("overcache/NeoSolarized")
 	use("mhartington/oceanic-next")
+	use({
+		"mcchrish/zenbones.nvim",
+		requires = "rktjmp/lush.nvim",
+	})
+	use("projekt0n/github-nvim-theme")
+	use("ishan9299/nvim-solarized-lua")
+	use("marko-cerovac/material.nvim")
 end)

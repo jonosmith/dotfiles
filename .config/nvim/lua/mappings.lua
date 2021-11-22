@@ -64,8 +64,8 @@ wk.register({
 	},
 })
 wk.register({
-	q = { "<cmd>CodeActionMenu<CR>", "Quickfix" },
 	["<leader>"] = {
+		q = { "<cmd>CodeActionMenu<CR>", "Quickfix" },
 		d = {
 			name = "Diagnostics",
 			d = { "<cmd>Trouble<CR>", "Toggle Diagnostics List" },

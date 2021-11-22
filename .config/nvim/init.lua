@@ -34,4 +34,4 @@ require("init")
 
 -- Set theme
 o.background = "dark"
-require("themes").setTheme("tokyonight")
+require("themes").setMaterial("palenight")
