@@ -5,8 +5,23 @@ end
 
 ts_config.setup({
 	ensure_installed = {
+	  "html",
+	  "css",
+	  "scss",
+	  "typescript",
+	  "javascript",
+	  "tsx",
+	  "json",
+	  "jsdoc",
 		"lua",
 		"graphql",
+		"vim",
+		"php",
+		"bash",
+		"dockerfile",
+		"regex",
+		"vue",
+		"yaml"
 	},
 	highlight = {
 		enable = true,
