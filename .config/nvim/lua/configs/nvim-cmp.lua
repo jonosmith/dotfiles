@@ -6,6 +6,8 @@ end
 
 vim.o.completeopt = "menu,menuone,noselect"
 
+require("cmp-npm").setup({})
+
 cmp.setup({
 	snippet = {
 		expand = function(args)
@@ -21,6 +23,8 @@ cmp.setup({
 	},
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp" },
+    { name = "nvim_lua" },
+    { name = "npm", keyword_length = 1 },
 		{ name = "buffer" },
 		{ name = "path" },
 		{ name = "vsnip" },
@@ -31,6 +35,9 @@ cmp.setup({
 
 -- Setup lspconfig.
 local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
-require("lspconfig")["tsserver"].setup({
-	capabilities = capabilities,
-})
+local lspconfig = require("lspconfig")
+for _, name in pairs(lspconfig.available_servers()) do
+  lspconfig[name].setup({
+    capabilities = capabilities
+  })
+end
