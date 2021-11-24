@@ -44,6 +44,22 @@ lsp_installer.on_server_ready(function(server)
 	}
 
 	if server.name == "tsserver" then
+	  local function organize_imports()
+      local params = {
+        command = "_typescript.organizeImports",
+        arguments = {vim.api.nvim_buf_get_name(0)},
+        title = ""
+      }
+      vim.lsp.buf.execute_command(params)
+    end
+
+
+    opts.commands = {
+      OrganizeImports = {
+        organize_imports,
+        description = "Organize Imports"
+      }
+    }
 		opts.settings.filetypes = { "typescript", "typescriptreact", "typescript.tsx" }
 	end
 

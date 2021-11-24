@@ -48,6 +48,7 @@ wk.register({
 	["<C-k>"] = { "<cmd>lua vim.lsp.buf.signature_help()<CR>", "Signature help" },
 	["<leader>"] = {
 		F = { "<cmd>lua vim.lsp.buf.formatting()<CR>", "Format" },
+		I = { "<cmd>OrganizeImports<CR>", "Organize Imports" },
 		r = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
 		D = { "<cmd>lua vim.lsp.buf.type_definition()<CR>", "Type Definition" },
 		o = { "<cmd>SymbolsOutline <CR>", "Symbols Outline" },

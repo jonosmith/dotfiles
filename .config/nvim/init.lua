@@ -34,4 +34,4 @@ require("init")
 
 -- Set theme
 o.background = "dark"
-require("themes").setMaterial("palenight")
+require("themes").setSolarized()

@@ -2,11 +2,9 @@ M = {}
 
 M.setTokyoNight = function()
 	vim.cmd("colorscheme tokyonight")
-	vim.g.lightline = { colorscheme = "tokyonight" }
 end
 
 M.setNeoSolarized = function()
-	vim.g.lightline = { colorscheme = "solarized" }
 	vim.g.neosolarized_termtrans = 1
 	vim.cmd("colorscheme NeoSolarized")
 end
@@ -22,7 +20,6 @@ M.setOceanicNext = function()
 end
 
 M.setPaperColor = function()
-	vim.g.lightline = { colorscheme = "PaperColor" }
 	vim.cmd("colorscheme PaperColor")
 end
 
