@@ -22,7 +22,6 @@ if [[ $answer != "n" ]] && [[ $answer != "N" ]] ; then
         node \
         watchman \
         iterm2 \
-        neovim \
         dash \
         slack \
         postman \
@@ -41,9 +40,12 @@ if [[ $answer != "n" ]] && [[ $answer != "N" ]] ; then
     mas install 441258766       # Magnet
     mas install 1440147259      # Adguard for Safari
 
-    # Neovim - packer
+    # Neovim
+    brew install neovim
+    pip3 install --upgrade pynvim # For packages that rely on python (vim-mundo)
     git clone --depth 1 https://github.com/wbthomason/packer.nvim \
        ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+    mkdir -p -- ~/.vim/undo
 fi
 
 echo -n "Install work apps? (Y/n) => "; read answer

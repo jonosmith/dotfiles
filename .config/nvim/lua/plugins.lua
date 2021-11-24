@@ -18,6 +18,11 @@ packer.init({
 })
 
 return packer.startup(function(use)
+	-- Core Vim enhancements
+	use("tpope/vim-surround")
+	use("tpope/vim-repeat")
+	use("bkad/CamelCaseMotion")
+
 	-- LSP stuff
 	use({
 		"neovim/nvim-lspconfig",
@@ -26,6 +31,10 @@ return packer.startup(function(use)
 	use("folke/lsp-colors.nvim")
 	use("williamboman/nvim-lsp-installer")
 	use("simrat39/symbols-outline.nvim")
+	use("folke/trouble.nvim")
+	use({
+		"weilbith/nvim-code-action-menu",
+	})
 
 	-- Completion
 	use({
@@ -37,12 +46,13 @@ return packer.startup(function(use)
 	use("hrsh7th/cmp-nvim-lua")
 	use("hrsh7th/cmp-buffer")
 	use("hrsh7th/cmp-path")
-  use {
-    "David-Kunz/cmp-npm",
-    requires = {
-      "nvim-lua/plenary.nvim"
-    }
-  }
+	use({
+		"David-Kunz/cmp-npm",
+		requires = {
+			"nvim-lua/plenary.nvim",
+		},
+	})
+	use({ "hrsh7th/vim-vsnip" })
 
 	-- Sidebar File Explorer
 	use({
@@ -70,19 +80,11 @@ return packer.startup(function(use)
 		config = require("configs.treesitter"),
 	})
 
-	use({ "hrsh7th/vim-vsnip" })
-
 	-- Helper for commenting lines
 	use({
 		"terrortylor/nvim-comment",
 		config = require("configs.comment"),
 	})
-
-	use({
-		"weilbith/nvim-code-action-menu",
-	})
-
-	use("nvim-lua/popup.nvim")
 
 	-- Documenting keymaps
 	use({
@@ -90,21 +92,13 @@ return packer.startup(function(use)
 		config = require("configs.whichkey"),
 	})
 
-	use("kyazdani42/nvim-web-devicons")
-
-	use({
-		"ahmedkhalf/project.nvim",
-		requires = { "nvim-telescope/telescope.nvim" },
-		config = require("configs.project"),
-	})
-
-	use("dyng/ctrlsf.vim")
-
+	-- Automatically set vim settings from .editorconfig files
 	use({
 		"editorconfig/editorconfig-vim",
 		config = require("configs.editorconfig"),
 	})
 
+	-- Fuzzy finder
 	use({
 		"nvim-telescope/telescope.nvim",
 		requires = {
@@ -114,8 +108,6 @@ return packer.startup(function(use)
 		},
 		config = require("configs.telescope"),
 	})
-
-	use("folke/trouble.nvim")
 
 	-- Git
 	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
@@ -133,12 +125,17 @@ return packer.startup(function(use)
 		ft = { "markdown" },
 	})
 
-	use("tpope/vim-surround")
-	use("tpope/vim-repeat")
-	use("bkad/CamelCaseMotion")
+	-- Highlight colors
+	use({
+		"norcalli/nvim-colorizer.lua",
+		config = require("configs.colorizer"),
+	})
 
 	-- Delete buffers without losing window layout
 	use("famiu/bufdelete.nvim")
+
+	-- Undo history visualiser
+	use("simnalamburt/vim-mundo")
 
 	-- Themes
 	use("folke/tokyonight.nvim")
@@ -152,4 +149,7 @@ return packer.startup(function(use)
 	use("projekt0n/github-nvim-theme")
 	use("ishan9299/nvim-solarized-lua")
 	use("marko-cerovac/material.nvim")
+
+	-- Other
+	use("kyazdani42/nvim-web-devicons")
 end)

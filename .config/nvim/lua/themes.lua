@@ -7,6 +7,11 @@ end
 M.setNeoSolarized = function()
 	vim.g.neosolarized_termtrans = 1
 	vim.cmd("colorscheme NeoSolarized")
+
+	-- Some extra styles
+	vim.cmd("hi CmpItemKind font=#002b36")
+	vim.cmd("hi LspDiagnosticsDefaultHint guifg=#eee8d5")
+	vim.cmd("hi LspDiagnosticsDefaultInformation guifg=#eee8d5")
 end
 
 M.setOceanicNext = function()

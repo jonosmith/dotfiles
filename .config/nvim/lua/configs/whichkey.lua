@@ -4,7 +4,13 @@ if not present then
 end
 
 wk.setup({
+	plugins = {
+		presets = {
+			-- Don't want the popup occuring on frequently used common operators
+			operators = false,
+		},
+	},
 	window = {
-		border = "double",
+		border = "none",
 	},
 })

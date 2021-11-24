@@ -141,6 +141,11 @@ wk.register({
 	["<leader>/"] = { ":<C-u>call CommentOperator(visualmode())<CR>", "Comment Line" },
 }, { mode = "v" })
 
+-- Visual Undo History
+wk.register({
+  ["<leader>u"] = { "<cmd>MundoToggle<CR>", "Toggle Undo Tree" }
+})
+
 -- Other
 
 -- Esc also clears any highlighted text
