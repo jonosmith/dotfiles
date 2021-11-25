@@ -45,34 +45,28 @@ wk.register({
 	gd = { "<cmd>lua vim.lsp.buf.definition()<CR>", "Definition" },
 	gi = { "<cmd>lua vim.lsp.buf.implementation()<CR>", "Implementation" },
 	gr = { "<cmd>lua vim.lsp.buf.references()<CR>", "References" },
-	["<C-k>"] = { "<cmd>lua vim.lsp.buf.signature_help()<CR>", "Signature help" },
+	gs = { "<cmd>lua vim.lsp.buf.signature_help()<CR>", "Signature help" },
+
 	["<leader>"] = {
+		ca = { "<cmd>CodeActionMenu<CR>", "Code Action" },
+		cd = { ":lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", "Line Diagnostics" },
 		F = { "<cmd>lua vim.lsp.buf.formatting()<CR>", "Format" },
 		I = { "<cmd>OrganizeImports<CR>", "Organize Imports" },
 		r = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
 		D = { "<cmd>lua vim.lsp.buf.type_definition()<CR>", "Type Definition" },
 		o = { "<cmd>SymbolsOutline <CR>", "Symbols Outline" },
-	},
-})
-
--- Diagnostics
-wk.register({
-	["["] = {
-		d = { ":lua vim.lsp.diagnostic.goto_prev()<CR>", "Previous Diagnostic Message" },
-	},
-	["]"] = {
-		d = { ":lua vim.lsp.diagnostic.goto_next()<CR>", "Next Diagnostic Message" },
-	},
-})
-wk.register({
-	["<leader>"] = {
-		q = { "<cmd>CodeActionMenu<CR>", "Quickfix" },
 		d = {
 			name = "Diagnostics",
 			d = { "<cmd>Trouble<CR>", "Toggle Diagnostics List" },
-			l = { ":lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", "Line Diagnostics" },
 			r = { "<cmd>Trouble lsp_references<CR>", "Diagnostic References" },
 		},
+	},
+
+	["["] = {
+		e = { ":lua vim.lsp.diagnostic.goto_prev()<CR>", "Previous Diagnostic Message" },
+	},
+	["]"] = {
+		e = { ":lua vim.lsp.diagnostic.goto_next()<CR>", "Next Diagnostic Message" },
 	},
 })
 
@@ -111,12 +105,20 @@ wk.register({
 		h = { "<cmd>Telescope help_tags <CR>", "Help Tags" },
 		["/"] = { "<cmd>Telescope search_history <CR>", "Help Tags" },
 		q = { "<cmd>Telescope quickfix <CR>", "Quickfix" },
+		ca = { "<cmd>Telescope lsp_code_actions<CR>", "Code Actions" },
+		cr = { "<cmd>Telescope lsp_references<CR>", "References" },
+		e = {
+			name = "Errors",
+			e = { "<cmd>Telescope lsp_document_diagnostics<CR>", "Document Errors" },
+			w = { "<cmd>Telescope lsp_workspace_diagnostics<CR>", "Workspace Errors" },
+		},
 		g = {
 			name = "Git",
 			b = { "<cmd>Telescope git_branches <CR>", "Git Branches" },
 			c = { "<cmd>Telescope git_commits <CR>", "Git Commits" },
 			t = { "<cmd>Telescope git_buffer_commits <CR>", "Git Buffer Commits" },
-			s = { "<cmd>Telescope git_status <CR>", "Git Status" },
+			k = { "<cmd>Telescope git_status <CR>", "Git Status" },
+			s = { "<cmd>Telescope git_stash<CR>", "Git Stash" },
 		},
 	},
 })
@@ -143,7 +145,7 @@ wk.register({
 
 -- Visual Undo History
 wk.register({
-  ["<leader>u"] = { "<cmd>MundoToggle<CR>", "Toggle Undo Tree" }
+	["<leader>u"] = { "<cmd>MundoToggle<CR>", "Toggle Undo Tree" },
 })
 
 -- Other

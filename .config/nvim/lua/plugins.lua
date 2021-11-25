@@ -28,7 +28,6 @@ return packer.startup(function(use)
 		"neovim/nvim-lspconfig",
 		config = require("configs.lspconfig"),
 	})
-	use("folke/lsp-colors.nvim")
 	use("williamboman/nvim-lsp-installer")
 	use("simrat39/symbols-outline.nvim")
 	use("folke/trouble.nvim")
