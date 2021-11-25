@@ -83,6 +83,8 @@ lsp_installer.on_server_ready(function(server)
 			common_on_attach(client, bufnr)
 		end
 
+		local ignore = {".git", "dist", "out", "node_modules"}
+
 		opts.on_attach = on_attach
 		opts.filetypes = {
 			"lua",
@@ -119,6 +121,7 @@ lsp_installer.on_server_ready(function(server)
 						[2] = "error",
 						[1] = "warning",
 					},
+          ignore = ignore
 				},
 			},
 			filetypes = {
@@ -132,17 +135,20 @@ lsp_installer.on_server_ready(function(server)
 					command = "eslint_d",
 					rootPatterns = { ".git" },
 					args = { "--stdin", "--stdin-filename", "%filename", "--fix-to-stdout" },
+          ignore = ignore
 				},
 				prettier = {
 					-- command = "prettier_d_slim",
 					command = "./node_modules/bin/prettier",
 					rootPatterns = { ".git" },
 					args = { "--tab-width 2", "--stdin", "--stdin-filepath", "%filename" },
+          ignore = ignore,
 				},
 				stylua = {
 					command = "stylua",
 					rootPatterns = { ".git" },
 					args = { "--stdin-filepath", "%filename", "-" },
+          ignore = ignore,
 				},
 			},
 			formatFiletypes = {

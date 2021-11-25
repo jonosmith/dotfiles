@@ -3,6 +3,18 @@ local cmd = api.nvim_command
 
 local M = {}
 
+M.create_augroup = function (name, autocmds)
+  cmd = vim.cmd
+
+  cmd('augroup ' .. name)
+  cmd('autocmd!')
+  for _, autocmd in ipairs(autocmds) do
+      cmd('autocmd ' .. table.concat(autocmd, ' '))
+  end
+
+  cmd('augroup END')
+end
+
 -- Key mapping
 M.map = function(mode, keys, cmd, opt)
    local options = { noremap = true, silent = true }

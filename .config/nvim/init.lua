@@ -13,7 +13,6 @@ o.syntax = "on"
 -- Basic config
 o.mouse = "a"
 o.clipboard = "unnamed" -- use the clipboard register for all yank, delete, change and put operations
-
 o.tabstop = 2
 o.softtabstop = 2 -- when hitting <BS>, pretend like a tab is removed, even if spaces
 o.shiftwidth = 2 -- number of spaces to use for autoindenting
@@ -33,6 +32,7 @@ wo.signcolumn = "yes"
 wo.wrap = false
 
 vim.g.nvim_tree_highlight_opened_files = 1
+
 
 -- Begin main initialization
 require("init")
