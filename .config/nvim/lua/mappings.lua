@@ -24,7 +24,7 @@ vim.cmd([[inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"]])
 -- Nvim Tree
 wk.register({
 	["<C-n>"] = { "<cmd>NvimTreeToggle<CR>", "Tree Toggle" },
-	["<leader>t"] = {
+	["<leader>n"] = {
 		name = "Nvim Tree",
 		r = { "<cmd>NvimTreeRefresh<CR>", "Refresh" },
 		f = { "<cmd>NvimTreeFindFile<CR>", "Find File" },
@@ -82,11 +82,10 @@ wk.register({
 
 -- Git
 wk.register({
-	["<leader>v"] = {
-		name = "Git",
-		d = { "<cmd>DiffviewOpen <CR>", "DiffView Open" },
-		h = { "<cmd>DiffviewFileHistory <CR>", "File History" },
-		x = { "<cmd>DiffviewClose <CR>", "DiffView Close" },
+	["<leader>g"] = {
+		g = { "<cmd>DiffviewOpen <CR>", "Git DiffView Open" },
+		h = { "<cmd>DiffviewFileHistory <CR>", "Git File History" },
+		x = { "<cmd>DiffviewClose <CR>", "Git DiffView Close" },
 	},
 })
 

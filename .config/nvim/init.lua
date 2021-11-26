@@ -12,22 +12,30 @@ o.syntax = "on"
 
 -- Basic config
 o.mouse = "a"
-o.clipboard = "unnamed" -- use the clipboard register for all yank, delete, change and put operations
+o.clipboard = "unnamed"
+o.hidden = true
+o.number = true
+o.relativenumber = true
+o.list = true
+o.listchars = "tab:▶ ,trail:.,nbsp:+"
 o.tabstop = 2
-o.softtabstop = 2 -- when hitting <BS>, pretend like a tab is removed, even if spaces
-o.shiftwidth = 2 -- number of spaces to use for autoindenting
-o.expandtab = true -- expand tabs to spaces
+o.softtabstop = 2
+o.shiftwidth = 2
+o.expandtab = true
+o.ignorecase = true
 o.smartcase = true
 o.autoindent = true
 o.copyindent = true
-o.showmode = false -- status bar shows it already
+o.showmode = false
 o.history = 1000
 o.undolevels = 1000
-o.undofile = true -- save undo history to file so we can still undo even after restarts
+o.undofile = true
 o.undodir = os.getenv("HOME") .. "/.vim/undo"
-o.cursorline = true -- highlight the current line
+o.cursorline = true
+o.scrolloff = 8
+o.sidescrolloff = 8
 
-wo.number = true -- display line numbers
+wo.number = true
 wo.signcolumn = "yes"
 wo.wrap = false
 
