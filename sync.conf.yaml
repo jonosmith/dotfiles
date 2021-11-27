@@ -1,0 +1,18 @@
+- defaults:
+    link:
+      relink: true
+
+- clean: ['~']
+
+- link:
+    ~/.oh-my-zsh/custom/aliases.zsh: .oh-my-zsh/custom/aliases.zsh
+    ~/.oh-my-zsh/custom/paths.zsh: .oh-my-zsh/custom/paths.zsh
+    ~/.config/lvim/config.lua: .config/lvim/config.lua
+    ~/.config/kitty: .config/kitty
+
+- create:
+    - ~/.vim/undo
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
+

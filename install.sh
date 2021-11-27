@@ -46,10 +46,10 @@ fi
 echo -n "Install Vim packages? (Y/n) => "; read answer
 if [[ $answer != "n" ]] && [[ $answer != "N" ]] ; then
     brew install neovim
+    brew install gnu-sed  # For nvim-spectre
     pip3 install --upgrade pynvim # For packages that rely on python (vim-mundo)
     git clone --depth 1 https://github.com/wbthomason/packer.nvim \
        ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-    mkdir -p -- ~/.vim/undo
 
     # LunarVim
     bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)

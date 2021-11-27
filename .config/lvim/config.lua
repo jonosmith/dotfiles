@@ -14,6 +14,10 @@ lvim.format_on_save = true
 vim.o.background = "dark"
 lvim.colorscheme = "solarized"
 
+--------------------------------------------------------------------------------
+-- Mappings
+--------------------------------------------------------------------------------
+
 lvim.leader = "space"
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>" -- Save buffer
 lvim.keys.normal_mode["<C-a>"] = "gg<S-v>G" -- Select all text
@@ -24,12 +28,20 @@ lvim.keys.normal_mode["gpd"] = ":lua require('goto-preview').goto_preview_defini
 lvim.keys.normal_mode["gpi"] = ":lua require('goto-preview').goto_preview_implementation()<CR>"
 lvim.keys.normal_mode["gpc"] = ":lua require('goto-preview').close_all_win()<CR>"
 lvim.keys.normal_mode["gpr"] = ":lua require('goto-preview').goto_preview_references()<CR>"
-
 lvim.builtin.which_key.mappings["lo"] = { "<cmd>OrganizeImports<CR>", "Organize Imports" }
 lvim.builtin.which_key.mappings["u"] = { "<cmd>MundoToggle<CR>", "Toggle Undo Tree" }
+
+-- Git Diffview
 lvim.builtin.which_key.mappings["gdd"] = { "<cmd>DiffviewOpen <CR>", "Git DiffView Open" }
 lvim.builtin.which_key.mappings["gdh"] = { "<cmd>DiffviewFileHistory <CR>", "Git File History" }
 lvim.builtin.which_key.mappings["gdc"] = { "<cmd>DiffviewClose <CR>", "Git DiffView Close" }
+
+-- Spectre search
+lvim.builtin.which_key.mappings["S"] = {
+	name = "Spectre Search",
+	s = { ":lua require('spectre').open()<CR>", "Open Search Panel" },
+	f = { "viw:lua require('spectre').open_file_search()<CR>", "Search Within File" },
+}
 
 --------------------------------------------------------------------------------
 -- Autocommands
@@ -99,6 +111,11 @@ lvim.plugins = {
 		config = function()
 			require("goto-preview").setup({})
 		end,
+	},
+
+	{
+		"windwp/nvim-spectre",
+		requires = "nvim-lua/plenary.nvim",
 	},
 
 	-- Themes
