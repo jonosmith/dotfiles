@@ -34,6 +34,7 @@ o.undodir = os.getenv("HOME") .. "/.vim/undo"
 o.cursorline = true
 o.scrolloff = 8
 o.sidescrolloff = 8
+o.updatetime = 300
 
 wo.number = true
 wo.signcolumn = "yes"

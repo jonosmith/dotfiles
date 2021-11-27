@@ -21,7 +21,7 @@ if [[ $answer != "n" ]] && [[ $answer != "N" ]] ; then
         git \
         node \
         watchman \
-        iterm2 \
+        kitty \
         dash \
         slack \
         postman \
@@ -41,11 +41,18 @@ if [[ $answer != "n" ]] && [[ $answer != "N" ]] ; then
     mas install 1440147259      # Adguard for Safari
 
     # Neovim
+fi
+
+echo -n "Install Vim packages? (Y/n) => "; read answer
+if [[ $answer != "n" ]] && [[ $answer != "N" ]] ; then
     brew install neovim
     pip3 install --upgrade pynvim # For packages that rely on python (vim-mundo)
     git clone --depth 1 https://github.com/wbthomason/packer.nvim \
        ~/.local/share/nvim/site/pack/packer/start/packer.nvim
     mkdir -p -- ~/.vim/undo
+
+    # LunarVim
+    bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)
 fi
 
 echo -n "Install work apps? (Y/n) => "; read answer
