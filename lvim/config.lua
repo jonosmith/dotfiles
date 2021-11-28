@@ -31,10 +31,38 @@ lvim.keys.normal_mode["gpr"] = ":lua require('goto-preview').goto_preview_refere
 lvim.builtin.which_key.mappings["lo"] = { "<cmd>OrganizeImports<CR>", "Organize Imports" }
 lvim.builtin.which_key.mappings["u"] = { "<cmd>MundoToggle<CR>", "Toggle Undo Tree" }
 
--- Git Diffview
-lvim.builtin.which_key.mappings["gdd"] = { "<cmd>DiffviewOpen <CR>", "Git DiffView Open" }
-lvim.builtin.which_key.mappings["gdh"] = { "<cmd>DiffviewFileHistory <CR>", "Git File History" }
-lvim.builtin.which_key.mappings["gdc"] = { "<cmd>DiffviewClose <CR>", "Git DiffView Close" }
+-- Override the whole "g" block due to conflicts with existing git diff (<leader>gd)
+lvim.builtin.which_key.mappings["g"] = {
+	name = "Git",
+	j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
+	k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
+	l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
+	p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
+	r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
+	R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
+	s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
+	u = {
+		"<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
+		"Undo Stage Hunk",
+	},
+	o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
+	b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
+	c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
+	C = {
+		"<cmd>Telescope git_bcommits<cr>",
+		"Checkout commit(for current file)",
+	},
+	d = {
+		name = "Git Diff",
+		d = { "<cmd>DiffviewOpen <CR>", "Git DiffView Open" },
+		h = { "<cmd>DiffviewFileHistory <CR>", "Git File History" },
+		c = { "<cmd>DiffviewClose <CR>", "Git DiffView Close" },
+		D = {
+			"<cmd>Gitsigns diffthis HEAD<cr>",
+			"Git Diff",
+		},
+	},
+}
 
 -- Spectre search
 lvim.builtin.which_key.mappings["S"] = {
@@ -116,6 +144,18 @@ lvim.plugins = {
 	{
 		"windwp/nvim-spectre",
 		requires = "nvim-lua/plenary.nvim",
+	},
+  {
+    "plasticboy/vim-markdown",
+    requires = "godlygeek/tabular"
+  },
+	{
+		"iamcco/markdown-preview.nvim",
+		run = "cd app && npm install",
+		setup = function()
+			vim.g.mkdp_filetypes = { "markdown" }
+		end,
+		ft = { "markdown" },
 	},
 
 	-- Themes
