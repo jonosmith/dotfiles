@@ -2,16 +2,13 @@ local U = require("utils")
 
 -- Highlights
 
-
 function HighlightsNeoSolarized()
 	vim.cmd("hi CmpItemKind font=#002b36")
 	vim.cmd("hi LspDiagnosticsDefaultHint guifg=#eee8d5")
 	vim.cmd("hi LspDiagnosticsDefaultInformation guifg=#eee8d5")
 end
 
-
 -- Theme Setters
-
 
 M = {}
 
@@ -19,11 +16,10 @@ M.setTokyoNight = function()
 	vim.cmd("colorscheme tokyonight")
 end
 
-
 M.setNeoSolarized = function()
-  U.create_augroup("NeoSolarizedOverrides", {
-    { "ColorScheme", "*", "lua HighlightsNeoSolarized()" }
-  })
+	U.create_augroup("NeoSolarizedOverrides", {
+		{ "ColorScheme", "*", "lua HighlightsNeoSolarized()" },
+	})
 
 	vim.g.neosolarized_termtrans = 1
 	vim.cmd("colorscheme NeoSolarized")
@@ -36,7 +32,10 @@ M.setOceanicNext = function()
 	vim.cmd("hi LineNr guibg=NONE ctermbg=NONE")
 	vim.cmd("hi SignColumn guibg=NONE ctermbg=NONE")
 	vim.cmd("hi EndOfBuffer guibg=NONE ctermbg=NONE")
-	vim.cmd("highlight NvimTreeFolderIcon guibg=blue")
+	vim.cmd("hi NvimTreeFolderIcon guibg=blue")
+	vim.cmd("hi Type guifg=#6699cc gui=NONE")
+	vim.cmd("hi DiagnosticError guifg=#ec5f67")
+	vim.cmd("hi DiagnosticUnderlineError guisp=#ec5f67")
 end
 
 M.setPaperColor = function()

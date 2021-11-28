@@ -12,7 +12,7 @@ lvim.log.level = "warn"
 lvim.format_on_save = true
 
 vim.o.background = "dark"
-lvim.colorscheme = "solarized"
+lvim.colorscheme = "nord"
 
 --------------------------------------------------------------------------------
 -- Mappings
@@ -79,6 +79,10 @@ lvim.autocommands.custom_groups = {
 	{ "BufWritePre", "*.ts*", "OrganizeImports" },
 	{ "BufWritePre", "*.js*", "OrganizeImports" },
 	{ "BufWinEnter", "*", "silent! %foldopen!" },
+
+	-- Default error red is too bright
+	{ "ColorScheme", "*", "hi DiagnosticError guifg=#ec5f67" },
+	{ "ColorScheme", "*", "hi DiagnosticUnderlineError guisp=#ec5f67" },
 }
 
 --------------------------------------------------------------------------------
@@ -103,6 +107,7 @@ lvim.builtin.treesitter.ensure_installed = {
 	"lua",
 	"python",
 	"typescript",
+	"tsx",
 	"css",
 	"rust",
 	"java",
@@ -111,6 +116,15 @@ lvim.builtin.treesitter.ensure_installed = {
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
+lvim.builtin.treesitter.incremental_selection = {
+	enable = true,
+	keymaps = {
+		init_selection = "<CR>",
+		scope_incremental = "<CR>",
+		node_incremental = "<TAB>",
+		node_decremental = "<S-TAB>",
+	},
+}
 
 -- Additional Plugins
 -- Builtin plugins: https://github.com/LunarVim/LunarVim/blob/rolling/lua/lvim/plugins.lua
@@ -145,10 +159,10 @@ lvim.plugins = {
 		"windwp/nvim-spectre",
 		requires = "nvim-lua/plenary.nvim",
 	},
-  {
-    "plasticboy/vim-markdown",
-    requires = "godlygeek/tabular"
-  },
+	{
+		"plasticboy/vim-markdown",
+		requires = "godlygeek/tabular",
+	},
 	{
 		"iamcco/markdown-preview.nvim",
 		run = "cd app && npm install",
@@ -159,12 +173,13 @@ lvim.plugins = {
 	},
 
 	-- Themes
-	{ "folke/tokyonight.nvim" },
 	{ "Mofiqul/dracula.nvim" },
+	{ "arcticicestudio/nord-vim" },
+	{ "folke/tokyonight.nvim" },
 	{ "NLKNguyen/papercolor-theme" },
 	{ "marko-cerovac/material.nvim" },
-	{ "projekt0n/github-nvim-theme" },
 	{ "ishan9299/nvim-solarized-lua" },
+	{ "mhartington/oceanic-next" },
 }
 
 --------------------------------------------------------------------------------

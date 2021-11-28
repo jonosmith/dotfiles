@@ -81,6 +81,7 @@ if [[ $answer != "n" ]] && [[ $answer != "N" ]] ; then
     brew tap homebrew/cask-fonts
 
     brew install \
+        font-blex-mono-nerd-font \
         font-sauce-code-pro-nerd-font \
         font-jetbrains-mono
 fi
