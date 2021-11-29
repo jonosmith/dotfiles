@@ -11,8 +11,8 @@ vim.o.foldexpr = "nvim_treesitter#foldexpr()"
 lvim.log.level = "warn"
 lvim.format_on_save = true
 
-vim.o.background = "dark"
-lvim.colorscheme = "nord"
+vim.o.background = "light"
+lvim.colorscheme = "nightfox"
 
 --------------------------------------------------------------------------------
 -- Mappings
@@ -80,9 +80,9 @@ lvim.autocommands.custom_groups = {
 	{ "BufWritePre", "*.js*", "OrganizeImports" },
 	{ "BufWinEnter", "*", "silent! %foldopen!" },
 
-	-- Default error red is too bright
-	{ "ColorScheme", "*", "hi DiagnosticError guifg=#ec5f67" },
-	{ "ColorScheme", "*", "hi DiagnosticUnderlineError guisp=#ec5f67" },
+	-- -- Default error red is too bright
+	-- { "ColorScheme", "*", "hi DiagnosticError guifg=#ec5f67" },
+	-- { "ColorScheme", "*", "hi DiagnosticUnderlineError guisp=#ec5f67" },
 }
 
 --------------------------------------------------------------------------------
@@ -180,6 +180,16 @@ lvim.plugins = {
 	{ "marko-cerovac/material.nvim" },
 	{ "ishan9299/nvim-solarized-lua" },
 	{ "mhartington/oceanic-next" },
+	{
+		"EdenEast/nightfox.nvim",
+		-- config = function()
+		-- 	require("nightfox").setup({
+		-- 		options = {
+		-- 			theme = "dawnfox",
+		-- 		},
+		-- 	})
+		-- end,
+	},
 }
 
 --------------------------------------------------------------------------------
