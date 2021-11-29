@@ -6,10 +6,8 @@
 
 vim.o.timeoutlen = 500
 vim.o.hidden = true
-vim.o.foldmethod = "expr"
-vim.o.foldexpr = "nvim_treesitter#foldexpr()"
 lvim.log.level = "warn"
-lvim.format_on_save = true
+lvim.format_on_save = false
 
 vim.o.background = "light"
 lvim.colorscheme = "nightfox"
@@ -97,6 +95,7 @@ lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.show_icons.git = 0
 lvim.builtin.nvimtree.hide_dotfiles = false
+lvim.builtin.telescope.pickers = { find_files = { hidden = true } }
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
