@@ -9,7 +9,7 @@ vim.o.hidden = true
 lvim.log.level = "warn"
 lvim.format_on_save = false
 
-vim.o.background = "light"
+vim.o.background = "dark"
 lvim.colorscheme = "nightfox"
 
 --------------------------------------------------------------------------------
@@ -74,10 +74,6 @@ lvim.builtin.which_key.mappings["S"] = {
 --------------------------------------------------------------------------------
 
 lvim.autocommands.custom_groups = {
-	{ "BufWritePre", "*.ts*", "OrganizeImports" },
-	{ "BufWritePre", "*.js*", "OrganizeImports" },
-	{ "BufWinEnter", "*", "silent! %foldopen!" },
-
 	-- -- Default error red is too bright
 	-- { "ColorScheme", "*", "hi DiagnosticError guifg=#ec5f67" },
 	-- { "ColorScheme", "*", "hi DiagnosticUnderlineError guisp=#ec5f67" },
@@ -96,6 +92,7 @@ lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.show_icons.git = 0
 lvim.builtin.nvimtree.hide_dotfiles = false
 lvim.builtin.telescope.pickers = { find_files = { hidden = true } }
+lvim.builtin.telescope.defaults.file_ignore_patterns = { ".git", "dotbot" }
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
@@ -172,8 +169,6 @@ lvim.plugins = {
 	},
 
 	-- Themes
-	{ "Mofiqul/dracula.nvim" },
-	{ "arcticicestudio/nord-vim" },
 	{ "folke/tokyonight.nvim" },
 	{ "NLKNguyen/papercolor-theme" },
 	{ "marko-cerovac/material.nvim" },
