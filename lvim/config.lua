@@ -10,7 +10,7 @@ lvim.log.level = "warn"
 lvim.format_on_save = false
 
 vim.o.background = "dark"
-lvim.colorscheme = "nightfox"
+lvim.colorscheme = "solarized"
 
 --------------------------------------------------------------------------------
 -- Mappings
@@ -28,6 +28,9 @@ lvim.keys.normal_mode["gpc"] = ":lua require('goto-preview').close_all_win()<CR>
 lvim.keys.normal_mode["gpr"] = ":lua require('goto-preview').goto_preview_references()<CR>"
 lvim.builtin.which_key.mappings["lo"] = { "<cmd>OrganizeImports<CR>", "Organize Imports" }
 lvim.builtin.which_key.mappings["u"] = { "<cmd>MundoToggle<CR>", "Toggle Undo Tree" }
+
+-- Toggleterm
+lvim.keys.term_mode["<Esc>"] = "<C-\\><C-n>"
 
 -- Override the whole "g" block due to conflicts with existing git diff (<leader>gd)
 lvim.builtin.which_key.mappings["g"] = {
