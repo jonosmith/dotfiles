@@ -171,6 +171,8 @@ lvim.plugins = {
 		ft = { "markdown" },
 	},
 
+	{ "rktjmp/lush.nvim" },
+
 	-- Themes
 	{ "folke/tokyonight.nvim" },
 	{ "NLKNguyen/papercolor-theme" },
