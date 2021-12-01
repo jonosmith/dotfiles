@@ -9,8 +9,9 @@ vim.o.hidden = true
 lvim.log.level = "warn"
 lvim.format_on_save = false
 
+-- Set theme
 vim.o.background = "dark"
-lvim.colorscheme = "solarized"
+lvim.colorscheme = "nordfox"
 
 --------------------------------------------------------------------------------
 -- Mappings
@@ -82,6 +83,7 @@ lvim.autocommands.custom_groups = {
 	-- { "ColorScheme", "*", "hi DiagnosticUnderlineError guisp=#ec5f67" },
 }
 
+
 --------------------------------------------------------------------------------
 -- Plugins
 --------------------------------------------------------------------------------
@@ -124,6 +126,7 @@ lvim.builtin.treesitter.incremental_selection = {
 		node_decremental = "<S-TAB>",
 	},
 }
+
 
 -- Additional Plugins
 -- Builtin plugins: https://github.com/LunarVim/LunarVim/blob/rolling/lua/lvim/plugins.lua
@@ -172,6 +175,7 @@ lvim.plugins = {
 	},
 
 	{ "rktjmp/lush.nvim" },
+  { "cocopon/inspecthi.vim" },
 
 	-- Themes
 	{ "folke/tokyonight.nvim" },
@@ -179,15 +183,9 @@ lvim.plugins = {
 	{ "marko-cerovac/material.nvim" },
 	{ "ishan9299/nvim-solarized-lua" },
 	{ "mhartington/oceanic-next" },
+  { "sainnhe/sonokai" },
 	{
-		"EdenEast/nightfox.nvim",
-		-- config = function()
-		-- 	require("nightfox").setup({
-		-- 		options = {
-		-- 			theme = "dawnfox",
-		-- 		},
-		-- 	})
-		-- end,
+		"EdenEast/nightfox.nvim"
 	},
 }
 
