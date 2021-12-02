@@ -11,7 +11,7 @@ lvim.format_on_save = false
 
 -- Set theme
 vim.o.background = "dark"
-lvim.colorscheme = "nordfox"
+lvim.colorscheme = "nightfox"
 
 --------------------------------------------------------------------------------
 -- Mappings
