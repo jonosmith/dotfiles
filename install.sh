@@ -20,6 +20,7 @@ if [[ $answer != "n" ]] && [[ $answer != "N" ]] ; then
         exa \
         git \
         node \
+        deno \
         watchman \
         kitty \
         dash \

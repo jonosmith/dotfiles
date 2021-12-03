@@ -7,7 +7,7 @@
 vim.o.timeoutlen = 500
 vim.o.hidden = true
 lvim.log.level = "warn"
-lvim.format_on_save = false
+lvim.format_on_save = true
 
 -- Set theme
 vim.o.background = "dark"
@@ -33,36 +33,14 @@ lvim.builtin.which_key.mappings["u"] = { "<cmd>MundoToggle<CR>", "Toggle Undo Tr
 -- Toggleterm
 lvim.keys.term_mode["<Esc>"] = "<C-\\><C-n>"
 
--- Override the whole "g" block due to conflicts with existing git diff (<leader>gd)
-lvim.builtin.which_key.mappings["g"] = {
-	name = "Git",
-	j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
-	k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
-	l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
-	p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
-	r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
-	R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
-	s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
-	u = {
-		"<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
-		"Undo Stage Hunk",
-	},
-	o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
-	b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-	c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
-	C = {
-		"<cmd>Telescope git_bcommits<cr>",
-		"Checkout commit(for current file)",
-	},
-	d = {
-		name = "Git Diff",
-		d = { "<cmd>DiffviewOpen <CR>", "Git DiffView Open" },
-		h = { "<cmd>DiffviewFileHistory <CR>", "Git File History" },
-		c = { "<cmd>DiffviewClose <CR>", "Git DiffView Close" },
-		D = {
-			"<cmd>Gitsigns diffthis HEAD<cr>",
-			"Git Diff",
-		},
+lvim.builtin.which_key.mappings.g.d = {
+	name = "Git Diff",
+	d = { "<cmd>DiffviewOpen <CR>", "Git DiffView Open" },
+	h = { "<cmd>DiffviewFileHistory <CR>", "Git File History" },
+	c = { "<cmd>DiffviewClose <CR>", "Git DiffView Close" },
+	D = {
+		"<cmd>Gitsigns diffthis HEAD<cr>",
+		"Git Diff",
 	},
 }
 
@@ -83,7 +61,6 @@ lvim.autocommands.custom_groups = {
 	-- { "ColorScheme", "*", "hi DiagnosticUnderlineError guisp=#ec5f67" },
 }
 
-
 --------------------------------------------------------------------------------
 -- Plugins
 --------------------------------------------------------------------------------
@@ -96,6 +73,7 @@ lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.show_icons.git = 0
 lvim.builtin.nvimtree.hide_dotfiles = false
+lvim.builtin.nvimtree.setup.view.width = 35
 lvim.builtin.telescope.pickers = { find_files = { hidden = true } }
 lvim.builtin.telescope.defaults.file_ignore_patterns = { ".git", "dotbot" }
 
@@ -126,7 +104,6 @@ lvim.builtin.treesitter.incremental_selection = {
 		node_decremental = "<S-TAB>",
 	},
 }
-
 
 -- Additional Plugins
 -- Builtin plugins: https://github.com/LunarVim/LunarVim/blob/rolling/lua/lvim/plugins.lua
@@ -175,7 +152,7 @@ lvim.plugins = {
 	},
 
 	{ "rktjmp/lush.nvim" },
-  { "cocopon/inspecthi.vim" },
+	{ "cocopon/inspecthi.vim" },
 
 	-- Themes
 	{ "folke/tokyonight.nvim" },
@@ -183,9 +160,9 @@ lvim.plugins = {
 	{ "marko-cerovac/material.nvim" },
 	{ "ishan9299/nvim-solarized-lua" },
 	{ "mhartington/oceanic-next" },
-  { "sainnhe/sonokai" },
+	{ "sainnhe/sonokai" },
 	{
-		"EdenEast/nightfox.nvim"
+		"EdenEast/nightfox.nvim",
 	},
 }
 
@@ -235,11 +212,7 @@ end
 local formatters = require("lvim.lsp.null-ls.formatters")
 formatters.setup({
 	{
-		exe = "prettier",
-		filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
-	},
-	{
-		exe = "eslint_d",
+		exe = "deno_fmt",
 		filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
 	},
 	{
