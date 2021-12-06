@@ -6,6 +6,8 @@
 
 vim.o.timeoutlen = 500
 vim.o.hidden = true
+vim.o.foldmethod = "expr"
+vim.o.foldexpr = "nvim_treesitter#foldexpr()"
 lvim.log.level = "warn"
 lvim.format_on_save = true
 
@@ -56,9 +58,7 @@ lvim.builtin.which_key.mappings["S"] = {
 --------------------------------------------------------------------------------
 
 lvim.autocommands.custom_groups = {
-	-- -- Default error red is too bright
-	-- { "ColorScheme", "*", "hi DiagnosticError guifg=#ec5f67" },
-	-- { "ColorScheme", "*", "hi DiagnosticUnderlineError guisp=#ec5f67" },
+	{ "BufWinEnter", "*", "silent! %foldopen!" },
 }
 
 --------------------------------------------------------------------------------
