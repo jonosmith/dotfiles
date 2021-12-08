@@ -6,14 +6,14 @@
 
 vim.o.timeoutlen = 500
 vim.o.hidden = true
-vim.o.foldmethod = "expr"
-vim.o.foldexpr = "nvim_treesitter#foldexpr()"
+-- vim.o.foldmethod = "expr"
+-- vim.o.foldexpr = "nvim_treesitter#foldexpr()"
 lvim.log.level = "warn"
 lvim.format_on_save = true
 
 -- Set theme
 vim.o.background = "dark"
-lvim.colorscheme = "nightfox"
+lvim.colorscheme = "tokyonight"
 
 --------------------------------------------------------------------------------
 -- Mappings
@@ -31,6 +31,11 @@ lvim.keys.normal_mode["gpc"] = ":lua require('goto-preview').close_all_win()<CR>
 lvim.keys.normal_mode["gpr"] = ":lua require('goto-preview').goto_preview_references()<CR>"
 lvim.builtin.which_key.mappings["lo"] = { "<cmd>OrganizeImports<CR>", "Organize Imports" }
 lvim.builtin.which_key.mappings["u"] = { "<cmd>MundoToggle<CR>", "Toggle Undo Tree" }
+
+-- Since we set timeoutlen > 0, remove the Esc shortcuts to prevent delays when typing
+lvim.keys.insert_mode.jk = false
+lvim.keys.insert_mode.kj = false
+lvim.keys.insert_mode.jj = false
 
 -- Toggleterm
 lvim.keys.term_mode["<Esc>"] = "<C-\\><C-n>"
@@ -59,6 +64,7 @@ lvim.builtin.which_key.mappings["S"] = {
 
 lvim.autocommands.custom_groups = {
 	{ "BufWinEnter", "*", "silent! %foldopen!" },
+	{ "BufWritePre", "*", "silent! %foldopen!" },
 }
 
 --------------------------------------------------------------------------------
@@ -165,6 +171,7 @@ lvim.plugins = {
 	{
 		"EdenEast/nightfox.nvim",
 	},
+	{ "sainnhe/gruvbox-material" },
 }
 
 --------------------------------------------------------------------------------
@@ -213,12 +220,16 @@ end
 local formatters = require("lvim.lsp.null-ls.formatters")
 formatters.setup({
 	{
-		exe = "deno_fmt",
+		exe = "prettierd",
 		filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
 	},
 	{
 		exe = "stylua",
 		filetypes = { "lua" },
+	},
+	{
+		exe = "eslint_d",
+		filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
 	},
 })
 
