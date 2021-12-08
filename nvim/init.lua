@@ -16,8 +16,6 @@ o.clipboard = "unnamed"
 o.hidden = true
 o.number = true
 o.relativenumber = true
-o.list = true
-o.listchars = "tab:▶ ,trail:.,nbsp:+"
 o.tabstop = 2
 o.softtabstop = 2
 o.shiftwidth = 2
@@ -48,4 +46,5 @@ require("init")
 
 -- Set theme
 o.background = "dark"
-require("themes").setNeoSolarized()
+require("themes").setTokyoNight()
+

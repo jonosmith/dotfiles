@@ -136,6 +136,12 @@ return packer.startup(function(use)
 	-- Undo history visualiser
 	use("simnalamburt/vim-mundo")
 
+	-- Terminal
+	use({
+	  "akinsho/toggleterm.nvim",
+	  config = require("configs.toggleterm"),
+  })
+
 	-- Themes
 	use("folke/tokyonight.nvim")
 	use("NLKNguyen/papercolor-theme")

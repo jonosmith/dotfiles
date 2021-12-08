@@ -23,12 +23,12 @@ local common_on_attach = function(client, bufnr)
 		client.resolved_capabilities.document_formatting = false
 	end
 
-	-- if client.resolved_capabilities.document_formatting then
-	-- 	vim.api.nvim_command([[augroup Format]])
-	-- 	vim.api.nvim_command([[autocmd! * <buffer>]])
-	-- 	vim.api.nvim_command([[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]])
-	-- 	vim.api.nvim_command([[augroup END]])
-	-- end
+	if client.resolved_capabilities.document_formatting then
+		vim.api.nvim_command([[augroup Format]])
+		vim.api.nvim_command([[autocmd! * <buffer>]])
+		vim.api.nvim_command([[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]])
+		vim.api.nvim_command([[augroup END]])
+	end
 end
 
 lsp_installer.on_server_ready(function(server)
@@ -83,7 +83,7 @@ lsp_installer.on_server_ready(function(server)
 			common_on_attach(client, bufnr)
 		end
 
-		local ignore = {".git", "dist", "out", "node_modules"}
+		local ignore = { ".git", "dist", "out", "node_modules" }
 
 		opts.on_attach = on_attach
 		opts.filetypes = {
@@ -121,7 +121,7 @@ lsp_installer.on_server_ready(function(server)
 						[2] = "error",
 						[1] = "warning",
 					},
-          ignore = ignore
+					ignore = ignore,
 				},
 			},
 			filetypes = {
@@ -135,20 +135,19 @@ lsp_installer.on_server_ready(function(server)
 					command = "eslint_d",
 					rootPatterns = { ".git" },
 					args = { "--stdin", "--stdin-filename", "%filename", "--fix-to-stdout" },
-          ignore = ignore
+					ignore = ignore,
 				},
 				prettier = {
-					-- command = "prettier_d_slim",
-					command = "./node_modules/bin/prettier",
+					command = "prettierd",
 					rootPatterns = { ".git" },
-					args = { "--tab-width 2", "--stdin", "--stdin-filepath", "%filename" },
-          ignore = ignore,
+					args = { "%filepath" },
+					ignore = ignore,
 				},
 				stylua = {
 					command = "stylua",
 					rootPatterns = { ".git" },
 					args = { "--stdin-filepath", "%filename", "-" },
-          ignore = ignore,
+					ignore = ignore,
 				},
 			},
 			formatFiletypes = {

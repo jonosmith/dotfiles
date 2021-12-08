@@ -8,7 +8,7 @@
     ~/.zshrc: .zshrc
     ~/.oh-my-zsh/custom/aliases.zsh: oh-my-zsh/custom/aliases.zsh
     ~/.oh-my-zsh/custom/paths.zsh: oh-my-zsh/custom/paths.zsh
-    ~/.config/lvim/config.lua: lvim/config.lua
+    ~/.config/nvim: nvim
     ~/.config/kitty: kitty
 
 - create:

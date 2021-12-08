@@ -23,7 +23,7 @@ vim.cmd([[inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"]])
 
 -- Nvim Tree
 wk.register({
-	["<C-n>"] = { "<cmd>NvimTreeToggle<CR>", "Tree Toggle" },
+	["<leader>e"] = { "<cmd>NvimTreeToggle<CR>", "Tree Toggle" },
 	["<leader>n"] = {
 		name = "Nvim Tree",
 		r = { "<cmd>NvimTreeRefresh<CR>", "Refresh" },
@@ -51,10 +51,10 @@ wk.register({
 		ca = { "<cmd>CodeActionMenu<CR>", "Code Action" },
 		cd = { ":lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", "Line Diagnostics" },
 		F = { "<cmd>lua vim.lsp.buf.formatting()<CR>", "Format" },
-		I = { "<cmd>OrganizeImports<CR>", "Organize Imports" },
+		o = { "<cmd>OrganizeImports<CR>", "Organize Imports" },
 		r = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
 		D = { "<cmd>lua vim.lsp.buf.type_definition()<CR>", "Type Definition" },
-		o = { "<cmd>SymbolsOutline <CR>", "Symbols Outline" },
+		s = { "<cmd>SymbolsOutline <CR>", "Symbols Outline" },
 		d = {
 			name = "Diagnostics",
 			d = { "<cmd>Trouble<CR>", "Toggle Diagnostics List" },
@@ -63,10 +63,10 @@ wk.register({
 	},
 
 	["["] = {
-		e = { ":lua vim.lsp.diagnostic.goto_prev()<CR>", "Previous Diagnostic Message" },
+		d = { ":lua vim.lsp.diagnostic.goto_prev()<CR>", "Previous Diagnostic Message" },
 	},
 	["]"] = {
-		e = { ":lua vim.lsp.diagnostic.goto_next()<CR>", "Next Diagnostic Message" },
+		d = { ":lua vim.lsp.diagnostic.goto_next()<CR>", "Next Diagnostic Message" },
 	},
 })
 
@@ -83,9 +83,9 @@ wk.register({
 -- Git
 wk.register({
 	["<leader>g"] = {
-		g = { "<cmd>DiffviewOpen <CR>", "Git DiffView Open" },
+		d = { "<cmd>DiffviewOpen <CR>", "Git DiffView Open" },
 		h = { "<cmd>DiffviewFileHistory <CR>", "Git File History" },
-		x = { "<cmd>DiffviewClose <CR>", "Git DiffView Close" },
+		c = { "<cmd>DiffviewClose <CR>", "Git DiffView Close" },
 	},
 })
 
@@ -124,14 +124,10 @@ wk.register({
 
 -- Navigation
 wk.register({
-	["<leader>"] = {
-		h = { ":wincmd h<CR>", "Window Left" },
-		j = { ":wincmd j<CR>", "Window Down" },
-		k = { ":wincmd k<CR>", "Window Up" },
-		l = { ":wincmd l<CR>", "Window Right" },
-		["+"] = { ":vertical resize +5<CR>", "Vertical Resize +5" },
-		["-"] = { ":vertical resize -5<CR>", "Vertical Resize -5" },
-	},
+	["<C-h>"] = { ":wincmd h<CR>", "Window Left" },
+	["<C-j>"] = { ":wincmd j<CR>", "Window Down" },
+	["<C-k>"] = { ":wincmd k<CR>", "Window Up" },
+	["<C-l>"] = { ":wincmd l<CR>", "Window Right" },
 })
 
 -- Comments
@@ -154,6 +150,7 @@ map("n", "<Esc>", "<cmd>let @/=''<CR>")
 
 wk.register({
 	["<C-a>"] = { "gg<S-v>G", "Select All" },
-	["<leader>x"] = { "<cmd>Bdelete<CR>", "Close Buffer" },
+	["<leader>w"] = { "<cmd>:w<CR>", "Save Buffer" },
+	["<leader>c"] = { "<cmd>Bdelete<CR>", "Close Buffer" },
 	["\\r"] = { "<cmd>:source $MYVIMRC<CR>", "Reload vimrc file" },
 })

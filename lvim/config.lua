@@ -153,6 +153,7 @@ lvim.plugins = {
 
 	{ "rktjmp/lush.nvim" },
 	{ "cocopon/inspecthi.vim" },
+  { 'nvim-treesitter/playground' },
 
 	-- Themes
 	{ "folke/tokyonight.nvim" },
