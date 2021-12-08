@@ -6,8 +6,6 @@
 
 vim.o.timeoutlen = 500
 vim.o.hidden = true
--- vim.o.foldmethod = "expr"
--- vim.o.foldexpr = "nvim_treesitter#foldexpr()"
 lvim.log.level = "warn"
 lvim.format_on_save = true
 
@@ -159,7 +157,7 @@ lvim.plugins = {
 
 	{ "rktjmp/lush.nvim" },
 	{ "cocopon/inspecthi.vim" },
-  { 'nvim-treesitter/playground' },
+	{ "nvim-treesitter/playground" },
 
 	-- Themes
 	{ "folke/tokyonight.nvim" },
