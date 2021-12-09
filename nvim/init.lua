@@ -38,8 +38,14 @@ wo.number = true
 wo.signcolumn = "yes"
 wo.wrap = false
 
-vim.g.nvim_tree_highlight_opened_files = 1
+-- Change some of the signs that appear in the gutter
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+for type, icon in pairs(signs) do
+	local hl = "DiagnosticSign" .. type
+	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
 
+vim.g.nvim_tree_highlight_opened_files = 1
 
 -- Begin main initialization
 require("init")
@@ -47,4 +53,3 @@ require("init")
 -- Set theme
 o.background = "dark"
 require("themes").setTokyoNight()
-

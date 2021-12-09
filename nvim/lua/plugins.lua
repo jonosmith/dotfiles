@@ -21,7 +21,7 @@ return packer.startup(function(use)
 	-- Core Vim enhancements
 	use("tpope/vim-surround")
 	use("tpope/vim-repeat")
-	use("bkad/CamelCaseMotion")
+	use("chaoren/vim-wordmotion")
 
 	-- LSP stuff
 	use({
@@ -63,6 +63,10 @@ return packer.startup(function(use)
 	use({
 		"akinsho/bufferline.nvim",
 		config = require("configs.bufferline"),
+	})
+	use({
+		"romgrk/barbar.nvim",
+		requires = { "kyazdani42/nvim-web-devicons" },
 	})
 
 	-- Bottom status bar
@@ -110,7 +114,13 @@ return packer.startup(function(use)
 
 	-- Git
 	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
-	use("tpope/vim-fugitive")
+	use({
+		"lewis6991/gitsigns.nvim",
+		requires = {
+			"nvim-lua/plenary.nvim",
+		},
+		config = require("configs.gitsigns"),
+	})
 
 	-- Markdown
 	use("godlygeek/tabular")
@@ -138,9 +148,9 @@ return packer.startup(function(use)
 
 	-- Terminal
 	use({
-	  "akinsho/toggleterm.nvim",
-	  config = require("configs.toggleterm"),
-  })
+		"akinsho/toggleterm.nvim",
+		config = require("configs.toggleterm"),
+	})
 
 	-- Themes
 	use("folke/tokyonight.nvim")
