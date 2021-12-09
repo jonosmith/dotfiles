@@ -4,6 +4,22 @@ local utils = require("utils")
 local map = utils.map
 local t = utils.escapeTermCodes
 
+-- Basics
+
+-- Esc also clears any highlighted text
+map("n", "<Esc>", "<cmd>let @/=''<CR>")
+
+-- Reselect visual selection after indenting
+map("v", "<", "<gv")
+map("v", ">", ">gv")
+
+wk.register({
+	["<C-a>"] = { "gg<S-v>G", "Select All" },
+	["<C-s>"] = { "<cmd>:w<CR>", "Save Buffer" },
+	["<leader>c"] = { "<cmd>Bdelete<CR>", "Close Buffer" },
+	["\\r"] = { "<cmd>:source $MYVIMRC<CR>", "Reload vimrc file" },
+})
+
 -- Set up some group names
 wk.register({
 	["["] = {
@@ -183,15 +199,4 @@ wk.register({
 		S = { "<cmd>PackerStatus<cr>", "Status" },
 		u = { "<cmd>PackerUpdate<cr>", "Update" },
 	},
-})
-
--- Other
-
--- Esc also clears any highlighted text
-map("n", "<Esc>", "<cmd>let @/=''<CR>")
-
-wk.register({
-	["<C-a>"] = { "gg<S-v>G", "Select All" },
-	["<leader>c"] = { "<cmd>Bdelete<CR>", "Close Buffer" },
-	["\\r"] = { "<cmd>:source $MYVIMRC<CR>", "Reload vimrc file" },
 })
