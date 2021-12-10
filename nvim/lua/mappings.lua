@@ -18,6 +18,13 @@ wk.register({
 	["<C-s>"] = { "<cmd>:w<CR>", "Save Buffer" },
 	["<leader>c"] = { "<cmd>Bdelete<CR>", "Close Buffer" },
 	["\\r"] = { "<cmd>:source $MYVIMRC<CR>", "Reload vimrc file" },
+
+	-- Vim settings
+	["<leader>v"] = {
+		name = "Vim",
+		c = { "<cmd>edit ~/.config/nvim/init.lua<CR>", "Edit Config" },
+		r = { "<cmd>source ~/.config/nvim/init.lua<CR>", "Reload Config" },
+	},
 })
 
 -- Set up some group names
@@ -50,7 +57,7 @@ wk.register({
 	gD = { "<cmd>lua vim.lsp.buf.declaration()<CR>", "Declaration" },
 	gd = { "<cmd>lua vim.lsp.buf.definition()<CR>", "Definition" },
 	gi = { "<cmd>lua vim.lsp.buf.implementation()<CR>", "Implementation" },
-	gr = { "<cmd>lua vim.lsp.buf.references()<CR>", "References" },
+	gr = { "<cmd>Telescope lsp_references<CR>", "References" },
 	gs = { "<cmd>lua vim.lsp.buf.signature_help()<CR>", "Signature help" },
 
 	["<leader>l"] = {
@@ -106,11 +113,12 @@ wk.register({
 
 -- Telescope
 wk.register({
-	["<leader>f"] = { "<cmd>Telescope find_files hidden=true <CR>", "Files" },
+	["<leader>f"] = { "<cmd>Telescope find_files <CR>", "Files" },
 	["<leader>s"] = {
 		name = "Telescope",
+		f = { "<cmd>Telescope find_files <CR>", "Files" },
+		a = { "<cmd>Telescope find_files hidden=true no_ignore=true <CR>", "All Files" },
 		t = { "<cmd>Telescope live_grep <CR>", "Text" },
-		f = { "<cmd>Telescope find_files hidden=true<CR>", "Files" },
 		r = { "<cmd>Telescope relative_grep <CR>", "Relative Search" },
 		m = { "<cmd>Telescope media_files <CR>", "Media Files" },
 		b = { "<cmd>Telescope buffers <CR>", "Buffers" },
@@ -198,5 +206,17 @@ wk.register({
 		s = { "<cmd>PackerSync<cr>", "Sync" },
 		S = { "<cmd>PackerStatus<cr>", "Status" },
 		u = { "<cmd>PackerUpdate<cr>", "Update" },
+	},
+})
+
+-- Vim Test
+wk.register({
+	["<leader>t"] = {
+		name = "Vim Test",
+		n = { "<cmd>TestNearest<CR>", "Test Nearest" },
+		f = { "<cmd>TestFile<CR>", "Test File" },
+		s = { "<cmd>TestSuite<CR>", "Test Suite" },
+		l = { "<cmd>TestLast<CR>", "Test Last" },
+		v = { "<cmd>TestVisit<CR>", "Test Visit" },
 	},
 })

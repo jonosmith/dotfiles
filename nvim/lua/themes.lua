@@ -12,11 +12,18 @@ end
 
 M = {}
 
-M.setTokyoNight = function()
+M.tokyoNight = function()
+	vim.g.colorscheme = "tokyonight"
 	vim.cmd("colorscheme tokyonight")
 end
 
-M.setNeoSolarized = function()
+M.neoSolarized = function()
+	if vim.o.background == "light" then
+		vim.g.colorscheme = "solarized_light"
+	else
+		vim.g.colorscheme = "solarized_dark"
+	end
+
 	U.create_augroup("NeoSolarizedOverrides", {
 		{ "ColorScheme", "*", "lua HighlightsNeoSolarized()" },
 	})
@@ -25,7 +32,9 @@ M.setNeoSolarized = function()
 	vim.cmd("colorscheme NeoSolarized")
 end
 
-M.setOceanicNext = function()
+M.oceanicNext = function()
+	vim.g.colorscheme = "OceanicNext"
+
 	vim.g.oceanic_next_terminal_bold = 0
 	vim.cmd("colorscheme OceanicNext")
 	vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
@@ -38,13 +47,19 @@ M.setOceanicNext = function()
 	vim.cmd("hi DiagnosticUnderlineError guisp=#ec5f67")
 end
 
-M.setPaperColor = function()
+M.paperColor = function()
+	if vim.o.background == "light" then
+		vim.g.colorscheme = "papercolor_light"
+	else
+		vim.g.colorscheme = "papercolor_dark"
+	end
+
 	vim.cmd("colorscheme PaperColor")
 end
 
 -- @tparam lightness string - "bright" | "dim"
 -- @tparam darkness string - "stark" | "warm"
-M.setZenbones = function(opts)
+M.zenbones = function(opts)
 	opts = opts or {}
 
 	if opts.lightness then
@@ -63,14 +78,20 @@ M.setZenbones = function(opts)
 end
 
 -- @param variant string - "dark" | "dark_default" | "dimmed" | "light" | "light_default"
-M.setGithub = function(variant)
+M.github = function(variant)
 	require("github-theme").setup({
 		theme_style = variant,
 	})
 end
 
 -- @param variant string - "high" | "flat" | "low"
-M.setSolarized = function(variant)
+M.solarized = function(variant)
+	if vim.o.background == "light" then
+		vim.g.colorscheme = "solarized_light"
+	else
+		vim.g.colorscheme = "solarized_dark"
+	end
+
 	local name = "solarized"
 
 	if variant then
@@ -81,12 +102,27 @@ M.setSolarized = function(variant)
 end
 
 -- @param variant string - "darker" | "lighter" | "oceanic" | "palenight" | "deep ocean"
-M.setMaterial = function(variant)
+M.material = function(variant)
+	vim.g.colorscheme = "material"
 	vim.g.material_style = variant or "palenight"
 
 	require("material").setup()
 
 	vim.cmd("colorscheme material")
+end
+
+M.dracula = function()
+	vim.g.colorscheme = "dracula"
+	vim.cmd("colorscheme dracula")
+end
+
+-- @param variant string - "nightfox" | "nordfox" | "dayfox" | "dawnfox" | "duskfox"
+M.nightfox = function(variant)
+	local colorscheme = variant or "nightfox"
+
+	vim.g.colorscheme = "nightfox"
+
+	vim.cmd("colorscheme " .. colorscheme)
 end
 
 return M

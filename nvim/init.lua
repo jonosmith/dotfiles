@@ -47,9 +47,9 @@ end
 
 vim.g.nvim_tree_highlight_opened_files = 1
 
--- Begin main initialization
-require("init")
-
 -- Set theme
 o.background = "dark"
-require("themes").setTokyoNight()
+require("themes").nightfox()
+
+-- Begin main initialization
+require("init")

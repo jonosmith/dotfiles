@@ -56,7 +56,7 @@ return packer.startup(function(use)
 	-- Sidebar File Explorer
 	use({
 		"kyazdani42/nvim-tree.lua",
-		config = require("configs.nvim-tree"),
+		config = require("configs.nvim-tree").setup(),
 	})
 
 	-- Tabs
@@ -152,6 +152,10 @@ return packer.startup(function(use)
 		config = require("configs.toggleterm"),
 	})
 
+	use({
+		"vim-test/vim-test",
+	})
+
 	-- Themes
 	use("folke/tokyonight.nvim")
 	use("NLKNguyen/papercolor-theme")
@@ -164,6 +168,8 @@ return packer.startup(function(use)
 	use("projekt0n/github-nvim-theme")
 	use("ishan9299/nvim-solarized-lua")
 	use("marko-cerovac/material.nvim")
+	use("dracula/vim")
+	use("EdenEast/nightfox.nvim")
 
 	-- Other
 	use("kyazdani42/nvim-web-devicons")
