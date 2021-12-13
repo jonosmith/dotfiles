@@ -36,9 +36,10 @@ return packer.startup(function(use)
 	})
 
 	-- Completion
+	use({ "onsails/lspkind-nvim" })
 	use({
 		"hrsh7th/nvim-cmp",
-		requires = { "neovim/nvim-lspconfig" },
+		requires = { "neovim/nvim-lspconfig", "onsails/lspkind-nvim" },
 		config = require("configs.nvim-cmp"),
 	})
 	use("hrsh7th/cmp-nvim-lsp")
@@ -81,6 +82,10 @@ return packer.startup(function(use)
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
 		config = require("configs.treesitter"),
+	})
+	use({
+		"nvim-treesitter/playground",
+		requires = { "nvim-treesitter/nvim-treesitter" },
 	})
 
 	-- Helper for commenting lines

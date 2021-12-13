@@ -6,9 +6,9 @@ end
 local lsp_installer = require("nvim-lsp-installer")
 
 -- Hover doc popup
---local pop_opts = { border = "rounded", max_width = 80, background = "red" }
---vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, pop_opts)
---vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, pop_opts)
+local pop_opts = { border = "single" }
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, pop_opts)
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, pop_opts)
 
 local common_on_attach = function(client, bufnr)
 	local function buf_set_option(...)
@@ -19,7 +19,7 @@ local common_on_attach = function(client, bufnr)
 	buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
 	-- formatting
-	if client.name == "tsserver" then
+	if client.name == "tsserver" or client.name == "jsonls" then
 		client.resolved_capabilities.document_formatting = false
 	end
 end
