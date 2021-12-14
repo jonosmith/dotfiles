@@ -63,8 +63,11 @@ wk.register({
 	["<leader>l"] = {
 		a = { "<cmd>CodeActionMenu<CR>", "Code Action" },
 		f = { "<cmd>lua vim.lsp.buf.formatting_seq_sync()<CR>", "Format" },
-		o = { "<cmd>OrganizeImports<CR>", "Organize Imports" },
-		r = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
+		o = { "<cmd>TSLspOrganize<CR>", "Organize Imports" },
+		i = { "<cmd>TSLspImportCurrent<CR>", "Import Missing Symbol Under Cursor" },
+		I = { "<cmd>TSLspImportAll<CR>", "Import All Missing Symbols" },
+		r = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename Symbol" },
+		R = { "<cmd>TSLspRenameFile<CR>", "Rename File " },
 		D = { "<cmd>lua vim.lsp.buf.type_definition()<CR>", "Type Definition" },
 		s = { "<cmd>SymbolsOutline <CR>", "Symbols Outline" },
 		d = { ":lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", "Line Diagnostics" },

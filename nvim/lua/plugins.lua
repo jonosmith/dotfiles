@@ -26,6 +26,7 @@ return packer.startup(function(use)
 	-- LSP stuff
 	use({
 		"neovim/nvim-lspconfig",
+		requires = { "jose-elias-alvarez/nvim-lsp-ts-utils" },
 		config = require("configs.lspconfig"),
 	})
 	use("williamboman/nvim-lsp-installer")
@@ -33,6 +34,11 @@ return packer.startup(function(use)
 	use("folke/trouble.nvim")
 	use({
 		"weilbith/nvim-code-action-menu",
+	})
+	use({
+		"jose-elias-alvarez/null-ls.nvim",
+		requires = { "nvim-lua/plenary.nvim" },
+		config = require("configs.null-ls"),
 	})
 
 	-- Completion

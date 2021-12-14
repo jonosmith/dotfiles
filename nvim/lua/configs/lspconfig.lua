@@ -37,21 +37,17 @@ lsp_installer.on_server_ready(function(server)
 	}
 
 	if server.name == "tsserver" then
-		local function organize_imports()
-			local params = {
-				command = "_typescript.organizeImports",
-				arguments = { vim.api.nvim_buf_get_name(0) },
-				title = "",
-			}
-			vim.lsp.buf.execute_command(params)
+		local on_attach = function(client, bufnr)
+			local ts_utils = require("nvim-lsp-ts-utils")
+
+			ts_utils.setup({})
+
+			ts_utils.setup_client(client)
+
+			common_on_attach(client, bufnr)
 		end
 
-		opts.commands = {
-			OrganizeImports = {
-				organize_imports,
-				description = "Organize Imports",
-			},
-		}
+		opts.on_attach = on_attach
 		opts.settings.filetypes = { "typescript", "typescriptreact", "typescript.tsx" }
 	end
 
@@ -64,97 +60,6 @@ lsp_installer.on_server_ready(function(server)
 		opts.settings.Lua = {
 			diagnostics = {
 				globals = { "vim" },
-			},
-		}
-	end
-
-	-- Configure linters and formatters
-	-- For available options see: https://github.com/creativenull/diagnosticls-configs-nvim/blob/main/supported-linters-and-formatters.md
-	if server.name == "diagnosticls" then
-		local on_attach = function(client, bufnr)
-			client.resolved_capabilities.document_formatting = true
-			common_on_attach(client, bufnr)
-		end
-
-		local ignore = { ".git", "dist", "out", "node_modules" }
-
-		opts.on_attach = on_attach
-		opts.filetypes = {
-			"lua",
-			"javascript",
-			"javascriptreact",
-			"json",
-			"typescript",
-			"typescriptreact",
-			"css",
-			"less",
-			"scss",
-			"markdown",
-			"pandoc",
-			"graphql",
-		}
-		opts.init_options = {
-			linters = {
-				eslint = {
-					command = "eslint_d",
-					rootPatterns = { ".git" },
-					debounce = 100,
-					args = { "--stdin", "--stdin-filename", "%filepath", "--format", "json" },
-					sourceName = "eslint_d",
-					parseJson = {
-						errorsRoot = "[0].messages",
-						line = "line",
-						column = "column",
-						endLine = "endLine",
-						endColumn = "endColumn",
-						message = "[eslint] ${message} [${ruleId}]",
-						security = "severity",
-					},
-					securities = {
-						[2] = "error",
-						[1] = "warning",
-					},
-					ignore = ignore,
-				},
-			},
-			filetypes = {
-				javascript = "eslint",
-				javascriptreact = "eslint",
-				typescript = "eslint",
-				typescriptreact = "eslint",
-			},
-			formatters = {
-				eslint_d = {
-					command = "eslint_d",
-					rootPatterns = { ".git" },
-					args = { "--stdin", "--stdin-filename", "%filename", "--fix-to-stdout" },
-					ignore = ignore,
-				},
-				prettier = {
-					command = "prettierd",
-					rootPatterns = { ".git" },
-					args = { "%filepath" },
-					ignore = ignore,
-				},
-				stylua = {
-					command = "stylua",
-					rootPatterns = { ".git" },
-					args = { "--stdin-filepath", "%filename", "-" },
-					ignore = ignore,
-				},
-			},
-			formatFiletypes = {
-				css = "prettier",
-				javascript = "prettier",
-				javascriptreact = "prettier",
-				graphql = "prettier",
-				json = "prettier",
-				scss = "prettier",
-				less = "prettier",
-				typescript = "prettier",
-				typescriptreact = "prettier",
-				markdown = "prettier",
-				lua = "stylua",
 			},
 		}
 	end
