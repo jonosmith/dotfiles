@@ -70,7 +70,7 @@ wk.register({
 		d = { ":lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", "Line Diagnostics" },
 		t = {
 			name = "Trouble",
-			d = { "<cmd>Trouble<CR>", "Toggle Diagnostics List" },
+			t = { "<cmd>Trouble<CR>", "Toggle Diagnostics List" },
 			r = { "<cmd>Trouble lsp_references<CR>", "Diagnostic References" },
 		},
 	},
