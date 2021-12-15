@@ -18,7 +18,16 @@ cmp.setup({
 	formatting = {
 		format = lspkind.cmp_format({
 			with_text = true,
-			maxwidth = 50,
+			maxwidth = 60,
+			menu = {
+				buffer = "[Buffer]",
+				nvim_lsp = "[LSP]",
+				luasnip = "[LuaSnip]",
+				nvim_lua = "[Lua]",
+				latex_symbols = "[Latex]",
+				npm = "[npm]",
+				path = "[Path]",
+			},
 		}),
 	},
 	mapping = {
@@ -34,11 +43,10 @@ cmp.setup({
 		{ name = "nvim_lsp" },
 		{ name = "nvim_lua" },
 		{ name = "npm", keyword_length = 1 },
-		{ name = "buffer" },
 		{ name = "path" },
+		{ name = "buffer" },
 		{ name = "vsnip" },
 	}, {
 		{ name = "buffer" },
 	}),
 })
-
