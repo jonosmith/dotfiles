@@ -1,5 +1,4 @@
 local present, cmp = pcall(require, "cmp")
-
 if not present then
 	return
 end
@@ -43,11 +42,3 @@ cmp.setup({
 	}),
 })
 
--- Setup lspconfig.
-local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
-local lspconfig = require("lspconfig")
-for _, name in pairs(lspconfig.available_servers()) do
-	lspconfig[name].setup({
-		capabilities = capabilities,
-	})
-end

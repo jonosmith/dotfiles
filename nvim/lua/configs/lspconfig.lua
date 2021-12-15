@@ -26,13 +26,13 @@ end
 
 lsp_installer.on_server_ready(function(server)
 	-- Set up completion using nvim_cmp with LSP source
-	--  local capabilities = require('cmp_nvim_lsp').update_capabilities(
-	--    vim.lsp.protocol.make_client_capabilities()
-	--  )
+	 local capabilities = require('cmp_nvim_lsp').update_capabilities(
+	   vim.lsp.protocol.make_client_capabilities()
+	 )
 
 	local opts = {
 		on_attach = common_on_attach,
-		-- capabilities = capabilities,
+		capabilities = capabilities,
 		settings = {},
 	}
 
