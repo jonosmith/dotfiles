@@ -13,6 +13,10 @@ map("n", "<Esc>", "<cmd>let @/=''<CR>")
 map("v", "<", "<gv")
 map("v", ">", ">gv")
 
+-- Shift + J/K moves selected lines down/up in visual mode
+map("v", "J", ":m '>+1<CR>gv=gv")
+map("v", "K", ":m '<-2<CR>gv=gv")
+
 wk.register({
 	["<C-a>"] = { "gg<S-v>G", "Select All" },
 	["<C-s>"] = { "<cmd>:w<CR>", "Save Buffer" },
@@ -61,6 +65,7 @@ wk.register({
 	gs = { "<cmd>lua vim.lsp.buf.signature_help()<CR>", "Signature help" },
 
 	["<leader>l"] = {
+		name = "LSP",
 		a = { "<cmd>CodeActionMenu<CR>", "Code Action" },
 		f = { "<cmd>lua vim.lsp.buf.formatting_seq_sync()<CR>", "Format" },
 		o = { "<cmd>TSLspOrganize<CR>", "Organize Imports" },
@@ -73,7 +78,7 @@ wk.register({
 		d = { ":lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", "Line Diagnostics" },
 		t = {
 			name = "Trouble",
-			t = { "<cmd>Trouble<CR>", "Toggle Diagnostics List" },
+			t = { "<cmd>TroubleToggle<CR>", "Toggle Diagnostics List" },
 			r = { "<cmd>Trouble lsp_references<CR>", "Diagnostic References" },
 		},
 	},
