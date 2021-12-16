@@ -46,10 +46,11 @@ for type, icon in pairs(signs) do
 end
 
 vim.g.nvim_tree_highlight_opened_files = 1
+vim.g.scrollview_current_only = true
 
 -- Set theme
 o.background = "dark"
-require("themes").nightfox()
+require("themes").tokyoNight()
 
 -- Begin main initialization
 require("init")

@@ -60,6 +60,9 @@ return packer.startup(function(use)
 	})
 	use({ "hrsh7th/vim-vsnip" })
 
+	-- Scrollbars
+	use({ "dstein64/nvim-scrollview" })
+
 	-- Sidebar File Explorer
 	use({
 		"kyazdani42/nvim-tree.lua",
