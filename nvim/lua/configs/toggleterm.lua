@@ -9,7 +9,11 @@ local floatingTerm = Terminal:new({
 	hidden = true,
 	direction = "float",
 	float_opts = {
-		border = "double",
+		border = "rounded",
+		highlights = {
+			background = "NormalFloat",
+			border = "FloatBorder",
+		},
 	},
 	-- function to run on opening the terminal
 	on_open = function(term)
