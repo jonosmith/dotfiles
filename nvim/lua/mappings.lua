@@ -17,10 +17,18 @@ map("v", ">", ">gv")
 map("v", "J", ":m '>+1<CR>gv=gv")
 map("v", "K", ":m '<-2<CR>gv=gv")
 
+-- Fix gx handling
+if vim.fn.has("mac") == 1 then
+	map("n", "gx", '<Cmd>call jobstart(["open", expand("<cfile>")], {"detach": v:true})<CR>')
+elseif vim.fn.has("unix") == 1 then
+	map("n", "gx", '<Cmd>call jobstart(["xdg-open", expand("<cfile>")], {"detach": v:true})<CR>')
+else
+	map("n", "gx", '<Cmd>lua print("Error: gx is not supported on this OS!")<CR>')
+end
+
 wk.register({
 	["<C-a>"] = { "gg<S-v>G", "Select All" },
 	["<C-s>"] = { "<cmd>:w<CR>", "Save Buffer" },
-	["<leader>c"] = { "<cmd>Bdelete<CR>", "Close Buffer" },
 	["\\r"] = { "<cmd>:source $MYVIMRC<CR>", "Reload vimrc file" },
 
 	-- Vim settings
@@ -122,6 +130,7 @@ wk.register({
 -- Telescope
 wk.register({
 	["<leader>f"] = { "<cmd>Telescope find_files <CR>", "Files" },
+	["<leader>o"] = { "<cmd>Telescope oldfiles cwd_only=true<CR>", "Old Files" },
 	["<leader>s"] = {
 		name = "Telescope",
 		f = { "<cmd>Telescope find_files <CR>", "Files" },
@@ -130,7 +139,7 @@ wk.register({
 		r = { "<cmd>Telescope relative_grep <CR>", "Relative Search" },
 		m = { "<cmd>Telescope media_files <CR>", "Media Files" },
 		b = { "<cmd>Telescope buffers <CR>", "Buffers" },
-		p = { "<cmd>Telescope projects <CR>", "Projects" },
+		p = { "<cmd>Telescope colorscheme enable_preview=true <CR>", "Projects" },
 		h = { "<cmd>Telescope help_tags <CR>", "Help Tags" },
 		["/"] = { "<cmd>Telescope search_history <CR>", "Help Tags" },
 		q = { "<cmd>Telescope quickfix <CR>", "Quickfix" },
@@ -175,6 +184,7 @@ wk.register({
 
 -- Buffers
 wk.register({
+	["<leader>c"] = { "<cmd>Bdelete<CR>", "Close Buffer" },
 	["<leader>w"] = { "<cmd>:w<CR>", "Save Buffer" },
 	["<S-h>"] = { "<cmd>BufferPrev<CR>", "Previous Buffer" },
 	["<S-l>"] = { "<cmd>BufferNext<CR>", "Previous Next" },
@@ -208,7 +218,8 @@ wk.register({
 wk.register({
 	["<leader>p"] = {
 		name = "Packer",
-		c = { "<cmd>PackerCompile<cr>", "Compile" },
+		c = { "<cmd>PackerClean<cr>", "Compile" },
+		b = { "<cmd>PackerCompile<cr>", "Compile" },
 		i = { "<cmd>PackerInstall<cr>", "Install" },
 		r = { "<cmd>lua require('lvim.plugin-loader').recompile()<cr>", "Re-compile" },
 		s = { "<cmd>PackerSync<cr>", "Sync" },

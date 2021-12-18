@@ -58,6 +58,7 @@ return packer.startup(function(use)
 			"nvim-lua/plenary.nvim",
 		},
 	})
+	use({ "hrsh7th/cmp-vsnip" })
 	use({ "hrsh7th/vim-vsnip" })
 
 	-- Scrollbars
@@ -69,7 +70,7 @@ return packer.startup(function(use)
 		config = require("configs.nvim-tree").setup(),
 	})
 
-	-- Tabs
+	-- Buffers
 	use({
 		"akinsho/bufferline.nvim",
 		config = require("configs.bufferline"),
@@ -78,6 +79,7 @@ return packer.startup(function(use)
 		"romgrk/barbar.nvim",
 		requires = { "kyazdani42/nvim-web-devicons" },
 	})
+	use("famiu/bufdelete.nvim") -- Delete buffers without losing window layout
 
 	-- Bottom status bar
 	use({
@@ -154,9 +156,6 @@ return packer.startup(function(use)
 		config = require("configs.colorizer"),
 	})
 
-	-- Delete buffers without losing window layout
-	use("famiu/bufdelete.nvim")
-
 	-- Undo history visualiser
 	use("simnalamburt/vim-mundo")
 
@@ -166,6 +165,7 @@ return packer.startup(function(use)
 		config = require("configs.toggleterm"),
 	})
 
+	-- Tests
 	use({
 		"vim-test/vim-test",
 	})
