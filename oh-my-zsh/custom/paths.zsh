@@ -9,9 +9,9 @@ export PATH=$PATH:$HOME/Developer/shell
 export PATH=$PATH:/usr/local/nvim/bin
 
 # Android
-export ANDROID_HOME=${HOME}/Library/Android/sdk
-export PATH=${PATH}:${ANDROID_HOME}/tools
-export PATH=${PATH}:${ANDROID_HOME}/platform-tools
+export ANDROID_SDK=${HOME}/Library/Android/sdk
+export PATH=${PATH}:${ANDROID_SDK}/tools
+export PATH=${PATH}:${ANDROID_SDK}/platform-tools
 
 # Go
 export GOPATH=$HOME/Projects/go
