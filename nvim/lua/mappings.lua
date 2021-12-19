@@ -169,19 +169,6 @@ wk.register({
 	["<C-l>"] = { ":wincmd l<CR>", "Window Right" },
 })
 
--- Comments
-wk.register({
-	["<leader>/"] = { "<cmd>CommentToggle <CR>", "Comment Line" },
-})
-wk.register({
-	["<leader>/"] = { ":<C-u>call CommentOperator(visualmode())<CR>", "Comment Line" },
-}, { mode = "v" })
-
--- Visual Undo History
-wk.register({
-	["<leader>u"] = { "<cmd>MundoToggle<CR>", "Toggle Undo Tree" },
-})
-
 -- Buffers
 wk.register({
 	["<leader>c"] = { "<cmd>Bdelete<CR>", "Close Buffer" },
@@ -212,6 +199,29 @@ wk.register({
 			"Sort by language",
 		},
 	},
+})
+
+-- Harpoon
+wk.register({
+	["<leader>h"] = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>", "Harpoon Toggle" },
+	["<leader>H"] = {
+		name = "Harpoon",
+		a = { "<cmd>lua require('harpoon.mark').add_file()<CR>", "Add File " },
+		x = { "<cmd>lua require('harpoon.mark').rm_file()<CR>", "Remove File" },
+	},
+})
+
+-- Comments
+wk.register({
+	["<leader>/"] = { "<cmd>CommentToggle <CR>", "Comment Line" },
+})
+wk.register({
+	["<leader>/"] = { ":<C-u>call CommentOperator(visualmode())<CR>", "Comment Line" },
+}, { mode = "v" })
+
+-- Visual Undo History
+wk.register({
+	["<leader>u"] = { "<cmd>MundoToggle<CR>", "Toggle Undo Tree" },
 })
 
 -- Packer

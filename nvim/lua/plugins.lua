@@ -170,6 +170,9 @@ return packer.startup(function(use)
 		"vim-test/vim-test",
 	})
 
+	-- Managing favourite files
+	use({ "ThePrimeagen/harpoon" })
+
 	-- Themes
 	use("folke/tokyonight.nvim")
 	use("NLKNguyen/papercolor-theme")
