@@ -30,7 +30,9 @@ map <C-n> <Plug>NextWholeOccurrence
 
 
 """ Common settings -----------------------------------------------------------
-set scrolloff=5
+set scrolloff=0
+# set relativenumber
+set visualbell " Disable the audible bell
 
 " Do incremental searching.
 set incsearch
@@ -62,23 +64,24 @@ map <leader>t <Action>(Terminal.OpenInTerminal)
 
 
 """ My mappings ---------------------------------------------------------------
+map <leader>e <Action>(ActivateProjectToolWindow)
+map <leader>w <Action>(SaveAll)
 
 map <K> <Action>(QuickJavaDoc)
-map <leader>ci <Action>(QuickImplementations)
-map <leader>e <Action>(ShowErrorDescription)
-map <leader>ge <Action>(GotoNextError)
-map <leader>ca <Action>(ShowIntentionActions)
+map <leader>li <Action>(QuickImplementations)
+map <leader>ld <Action>(ShowErrorDescription)
+map ]d <Action>(GotoNextError)
+map <leader>la <Action>(ShowIntentionActions)
 map <leader>gd <Action>(GotoDeclaration)
+map <leader>lr <Action>(RenameElement)
 
 map <leader>d <Action>(Debug)
-map <leader>r <Action>(RenameElement)
-map <leader>c <Action>(Sto
 map <leader>z <Action>(ToggleDistractionFreeMode)
 
 map <leader>s <Action>(SelectInProjectView)
 map <leader>a <Action>(Annotate)
 map <leader>h <Action>(Vcs.ShowTabbedFileHistory)
-map <S-Space> <Action>(GotoNextError)
 
 map <leader>b <Action>(ToggleLineBreakpoint)
 map <leader>o <Action>(FileStructurePopup)
+

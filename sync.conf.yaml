@@ -2,7 +2,7 @@
     link:
       relink: true
 
-- clean: ['~']
+- clean: ["~"]
 
 - link:
     ~/.zshrc: .zshrc
@@ -10,10 +10,10 @@
     ~/.oh-my-zsh/custom/paths.zsh: oh-my-zsh/custom/paths.zsh
     ~/.config/nvim: nvim
     ~/.config/kitty: kitty
+    ~/.ideavimrc: .ideavimrc
 
 - create:
     - ~/.vim/undo
 
 - shell:
-  - [git submodule update --init --recursive, Installing submodules]
-
+    - [git submodule update --init --recursive, Installing submodules]
