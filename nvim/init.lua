@@ -33,6 +33,9 @@ o.cursorline = true
 o.scrolloff = 8
 o.sidescrolloff = 8
 o.updatetime = 300
+o.foldmethod = "expr"
+o.foldexpr = "nvim_treesitter#foldexpr()"
+o.foldlevel = 99
 
 wo.number = true
 wo.signcolumn = "yes"
@@ -47,10 +50,14 @@ end
 
 vim.g.nvim_tree_highlight_opened_files = 1
 vim.g.scrollview_current_only = true
+vim.g.symbols_outline = {
+	width = 60,
+	auto_preview = false,
+}
 
 -- Set theme
-o.background = "dark"
-require("themes").tokyoNight()
+o.background = "light"
+require("themes").nightfox()
 
 -- Begin main initialization
 require("init")

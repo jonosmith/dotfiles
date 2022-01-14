@@ -21,7 +21,7 @@ return packer.startup(function(use)
 	-- Core Vim enhancements
 	use("tpope/vim-surround")
 	use("tpope/vim-repeat")
-	use("chaoren/vim-wordmotion")
+	use("ggandor/lightspeed.nvim")
 
 	-- LSP stuff
 	use({
@@ -136,6 +136,13 @@ return packer.startup(function(use)
 			"nvim-lua/plenary.nvim",
 		},
 		config = require("configs.gitsigns"),
+	})
+	use({
+		"tanvirtin/vgit.nvim",
+		requires = {
+			"nvim-lua/plenary.nvim",
+		},
+		config = require("configs.vgit"),
 	})
 
 	-- Markdown

@@ -55,6 +55,7 @@ M.paperColor = function()
 	end
 
 	vim.cmd("colorscheme PaperColor")
+	vim.cmd("hi BufferInactive guifg=#eeeeee guibg=#005f87")
 end
 
 -- @tparam lightness string - "bright" | "dim"

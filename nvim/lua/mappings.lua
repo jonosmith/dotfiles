@@ -112,10 +112,42 @@ wk.register({
 -- Git
 wk.register({
 	["<leader>g"] = {
-		d = { "<cmd>DiffviewOpen <CR>", "Git DiffView Open" },
-		h = { "<cmd>DiffviewFileHistory <CR>", "Git File History" },
-		c = { "<cmd>DiffviewClose <CR>", "Git DiffView Close" },
+		d = {
+			name = "Diff View",
+			o = { "<cmd>DiffviewOpen <CR>", "Git DiffView Open" },
+			h = { "<cmd>DiffviewFileHistory <CR>", "Git File History" },
+			c = { "<cmd>DiffviewClose <CR>", "Git DiffView Close" },
+		},
+
+		p = {
+			name = "Project",
+			s = { "<cmd>VGit stage_all<CR>", "Stage All Project Changes" },
+			u = { "<cmd>VGit unstage_all<CR>", "Unstage All Project Changes" },
+			l = { "<cmd>VGit project_hunks_preview<CR>", "Hunks Preview" },
+			d = { "<cmd>VGit project_diff_preview<CR>", "Diff Preview" },
+			q = { "<cmd>VGit project_hunks_qf<CR>", "Populate Quickfix List with Hunks" },
+		},
+
+		h = {
+			name = "Hunk",
+			s = { "<cmd>VGit buffer_hunk_stage<CR>", "Stage Hunk at Cursor" },
+			r = { "<cmd>VGit buffer_hunk_reset<CR>", "Reset Hunk Changes at Cursor" },
+			d = { "<cmd>VGit buffer_hunk_preview<CR>", "Hunk Diff Preview" },
+		},
+
+		b = {
+			name = "Buffer",
+			b = { "<cmd>VGit buffer_blame_preview<CR>", "Buffer Blame" },
+			f = { "<cmd>VGit buffer_diff_preview<CR>", "Buffer Diff" },
+			h = { "<cmd>VGit buffer_history_preview<CR>", "Buffer History" },
+			u = { "<cmd>VGit buffer_reset<CR>", "Buffer Reset" },
+			g = { "<cmd>VGit buffer_gutter_blame_preview<CR>", "Preview All Blames in Buffer" },
+			i = { "<cmd>VGit toggle_buffer_blames<CR>", "Toggle Inline Buffer Blames" },
+		},
 	},
+
+	["]h"] = { "<cmd>VGit hunk_down<CR>", "Next Git Hunk" },
+	["[h"] = { "<cmd>VGit hunk_up<CR>", "Previous Git Hunk" },
 })
 
 -- Toggleterm
