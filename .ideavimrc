@@ -67,21 +67,24 @@ map <leader>t <Action>(Terminal.OpenInTerminal)
 map <leader>e <Action>(ActivateProjectToolWindow)
 map <leader>w <Action>(SaveAll)
 
+" Language
 map <K> <Action>(QuickJavaDoc)
 map <leader>li <Action>(QuickImplementations)
-map <leader>ld <Action>(ShowErrorDescription)
-map ]d <Action>(GotoNextError)
 map <leader>la <Action>(ShowIntentionActions)
-map <leader>gd <Action>(GotoDeclaration)
 map <leader>lr <Action>(RenameElement)
 
-map <leader>d <Action>(Debug)
-map <leader>z <Action>(ToggleDistractionFreeMode)
+" Diagnostics
+map <leader>ld <Action>(ShowErrorDescription)
+map [d <Action>(GotoPreviousError)
+map ]d <Action>(GotoNextError)
 
+" Debugging
+map <leader>d <Action>(Debug)
+map <leader>b <Action>(ToggleLineBreakpoint)
+
+map <leader>z <Action>(ToggleDistractionFreeMode)
 map <leader>s <Action>(SelectInProjectView)
 map <leader>a <Action>(Annotate)
 map <leader>h <Action>(Vcs.ShowTabbedFileHistory)
-
-map <leader>b <Action>(ToggleLineBreakpoint)
 map <leader>o <Action>(FileStructurePopup)
 
