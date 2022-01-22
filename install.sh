@@ -36,7 +36,6 @@ if [[ $answer != "n" ]] && [[ $answer != "N" ]] ; then
         dictionaries \
         daisydisk \
         transmission \
-        karabiner-elements
     
     mas install 441258766       # Magnet
     mas install 1440147259      # Adguard for Safari
@@ -75,6 +74,8 @@ if [[ $answer != "n" ]] && [[ $answer != "N" ]] ; then
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git \
         ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
     git clone https://github.com/agkozak/zsh-z $ZSH_CUSTOM/plugins/zsh-z
+
+    brew install git-delta
 fi
 
 echo -n "Install fonts (Y/n) => "; read answer
