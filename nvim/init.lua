@@ -56,8 +56,8 @@ vim.g.symbols_outline = {
 }
 
 -- Set theme
-o.background = "light"
-require("themes").nightfox()
+o.background = "dark"
+require("themes").tokyoNight()
 
 -- Begin main initialization
 require("init")
