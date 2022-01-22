@@ -3,8 +3,8 @@
 
 let mapleader=" "
 
-nnoremap \e :e ~/.ideavimrc<CR>
-nnoremap \r :action IdeaVim.ReloadVimRc.reload<CR>
+nnoremap <leader>ve :e ~/.ideavimrc<CR>
+nnoremap <leader>vr :action IdeaVim.ReloadVimRc.reload<CR>
 
 
 """ Plugins  ------------------------------------------------------------------
@@ -12,7 +12,6 @@ set surround
 set multiple-cursors
 set commentary
 set argtextobj
-set easymotion
 set textobj-entire
 set ReplaceWithRegister
 set exchange
@@ -31,7 +30,6 @@ map <C-n> <Plug>NextWholeOccurrence
 
 """ Common settings -----------------------------------------------------------
 set scrolloff=0
-# set relativenumber
 set visualbell " Disable the audible bell
 
 " Do incremental searching.
