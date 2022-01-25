@@ -1,13 +1,5 @@
 local U = require("utils")
 
--- Highlights
-
-function HighlightsNeoSolarized()
-	vim.cmd("hi CmpItemKind font=#002b36")
-	vim.cmd("hi LspDiagnosticsDefaultHint guifg=#eee8d5")
-	vim.cmd("hi LspDiagnosticsDefaultInformation guifg=#eee8d5")
-end
-
 -- Theme Setters
 
 M = {}
@@ -15,21 +7,6 @@ M = {}
 M.tokyoNight = function()
 	vim.g.colorscheme = "tokyonight"
 	vim.cmd("colorscheme tokyonight")
-end
-
-M.neoSolarized = function()
-	if vim.o.background == "light" then
-		vim.g.colorscheme = "solarized_light"
-	else
-		vim.g.colorscheme = "solarized_dark"
-	end
-
-	U.create_augroup("NeoSolarizedOverrides", {
-		{ "ColorScheme", "*", "lua HighlightsNeoSolarized()" },
-	})
-
-	vim.g.neosolarized_termtrans = 1
-	vim.cmd("colorscheme NeoSolarized")
 end
 
 M.oceanicNext = function()
@@ -58,9 +35,12 @@ M.paperColor = function()
 	vim.cmd("hi BufferInactive guifg=#eeeeee guibg=#005f87")
 end
 
+-- @param variant string - "zenbones" | "zenwritten" | "neobones" | "vimbones" | "rosebones" | "forestbones" | "nordbones" | "tokyobones" | "seoulbones" | "duckbones" | "zenburned" | "kanagawabones" | "randombones"
 -- @tparam lightness string - "bright" | "dim"
 -- @tparam darkness string - "stark" | "warm"
-M.zenbones = function(opts)
+M.zenbones = function(variant, opts)
+	local name = variant or "zenbones"
+
 	opts = opts or {}
 
 	if opts.lightness then
@@ -75,7 +55,7 @@ M.zenbones = function(opts)
 		}
 	end
 
-	vim.cmd("colorscheme zenbones")
+	vim.cmd("colorscheme " .. name)
 end
 
 -- @param variant string - "dark" | "dark_default" | "dimmed" | "light" | "light_default"
@@ -91,6 +71,10 @@ M.solarized = function(variant)
 		vim.g.colorscheme = "solarized_light"
 	else
 		vim.g.colorscheme = "solarized_dark"
+
+		if variant == "high" then
+			vim.cmd("hi Normal guibg=#001e26")
+		end
 	end
 
 	local name = "solarized"
@@ -112,11 +96,6 @@ M.material = function(variant)
 	vim.cmd("colorscheme material")
 end
 
-M.dracula = function()
-	vim.g.colorscheme = "dracula"
-	vim.cmd("colorscheme dracula")
-end
-
 -- @param variant string - "nightfox" | "nordfox" | "dayfox" | "dawnfox" | "duskfox"
 M.nightfox = function(variant)
 	local colorscheme = variant or "nightfox"
@@ -124,6 +103,18 @@ M.nightfox = function(variant)
 	vim.g.colorscheme = "nightfox"
 
 	vim.cmd("colorscheme " .. colorscheme)
+end
+
+-- @param variant string - "soft" | "medium" | "hard"
+-- @param palette string - "material" | "mix" | "original"
+M.gruvbox = function(variant, palette)
+	vim.g.gruvbox_material_background = variant or "medium"
+	vim.g.gruvbox_material_palette = palette or "material"
+	vim.cmd("colorscheme gruvbox-material")
+end
+
+M.onedark = function()
+	vim.cmd("colorscheme onedark")
 end
 
 return M
