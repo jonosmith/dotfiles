@@ -112,12 +112,16 @@ wk.register({
 -- Git
 wk.register({
 	["<leader>g"] = {
+		g = { "<cmd>lua ToggleGituiTerm()<CR>", "Gitui" },
+
 		d = {
 			name = "Diff View",
 			o = { "<cmd>DiffviewOpen <CR>", "Git DiffView Open" },
 			h = { "<cmd>DiffviewFileHistory <CR>", "Git File History" },
 			c = { "<cmd>DiffviewClose <CR>", "Git DiffView Close" },
 		},
+
+		l = { "<cmd>GV --all<CR>", "Git Log" },
 
 		p = {
 			name = "Project",
@@ -137,12 +141,12 @@ wk.register({
 
 		b = {
 			name = "Buffer",
-			b = { "<cmd>VGit buffer_blame_preview<CR>", "Buffer Blame" },
-			f = { "<cmd>VGit buffer_diff_preview<CR>", "Buffer Diff" },
+			b = { "<cmd>Git blame<CR>", "Buffer Blame" },
+			d = { "<cmd>VGit buffer_diff_preview<CR>", "Buffer Diff" },
 			h = { "<cmd>VGit buffer_history_preview<CR>", "Buffer History" },
 			u = { "<cmd>VGit buffer_reset<CR>", "Buffer Reset" },
 			g = { "<cmd>VGit buffer_gutter_blame_preview<CR>", "Preview All Blames in Buffer" },
-			i = { "<cmd>VGit toggle_buffer_blames<CR>", "Toggle Inline Buffer Blames" },
+			i = { "<cmd>VGit toggle_live_blame<CR>", "Toggle Inline Buffer Blames" },
 		},
 	},
 

@@ -137,6 +137,7 @@ return packer.startup(function(use)
 		},
 		config = require("configs.gitsigns"),
 	})
+	use({ "tpope/vim-fugitive" })
 	use({
 		"tanvirtin/vgit.nvim",
 		requires = {
@@ -144,6 +145,7 @@ return packer.startup(function(use)
 		},
 		config = require("configs.vgit"),
 	})
+	use({ "junegunn/gv.vim" })
 
 	-- Markdown
 	use("godlygeek/tabular")
@@ -183,7 +185,6 @@ return packer.startup(function(use)
 	-- Themes
 	use("folke/tokyonight.nvim")
 	use("NLKNguyen/papercolor-theme")
-	use("overcache/NeoSolarized")
 	use("mhartington/oceanic-next")
 	use({
 		"mcchrish/zenbones.nvim",
@@ -194,6 +195,10 @@ return packer.startup(function(use)
 	use("marko-cerovac/material.nvim")
 	use("dracula/vim")
 	use("EdenEast/nightfox.nvim")
+	use("sainnhe/gruvbox-material")
+	use("navarasu/onedark.nvim")
+	use("sainnhe/everforest")
+	use("mswift42/vim-themes")
 
 	-- Other
 	use("kyazdani42/nvim-web-devicons")
