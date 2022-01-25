@@ -12,7 +12,6 @@
     ~/.config/kitty: kitty
     ~/.ideavimrc: .ideavimrc
     ~/.config/gitui/key_bindings.ron: gitui/key_bindings.ron
-    ~/.config/gitui/solarized_dark.ron: gitui/solarized_dark.ron
 
 - create:
     - ~/.vim/undo

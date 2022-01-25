@@ -75,7 +75,9 @@ if [[ $answer != "n" ]] && [[ $answer != "N" ]] ; then
         ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
     git clone https://github.com/agkozak/zsh-z $ZSH_CUSTOM/plugins/zsh-z
 
-    brew install git-delta
+    brew install \
+      git-delta \
+      gitui
 fi
 
 echo -n "Install fonts (Y/n) => "; read answer
