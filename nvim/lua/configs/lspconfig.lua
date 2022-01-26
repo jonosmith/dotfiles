@@ -50,8 +50,16 @@ lsp_installer.on_server_ready(function(server)
 	end
 
 	if server.name == "graphql" then
-		opts.root_dir = lspconfig.util.root_pattern(".graphql*", ".git", "package.json")
-		opts.settings.filetypes = { "graphql", "typescript", "typescriptreact" }
+		opts.settings.root_dir = lspconfig.util.root_pattern(".graphql*", ".git", "package.json")
+		opts.settings.filetypes = {
+			"typescript",
+			"typescriptreact",
+			"typescript.tsx",
+			"javascript",
+			"javascriptreact",
+			"javascript.tsx",
+			"graphql",
+		}
 	end
 
 	if server.name == "sumneko_lua" then
