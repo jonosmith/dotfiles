@@ -113,6 +113,9 @@ wk.register({
 wk.register({
 	["<leader>g"] = {
 		g = { "<cmd>lua ToggleGituiTerm()<CR>", "Gitui" },
+		s = { "<cmd>Git<CR>", "Git Status" },
+		c = { "<cmd>Git commit<CR>", "Git Commit" },
+		p = { "<cmd>Git push<CR>", "Git Commit" },
 
 		d = {
 			name = "Diff View",
@@ -122,15 +125,6 @@ wk.register({
 		},
 
 		l = { "<cmd>GV --all<CR>", "Git Log" },
-
-		p = {
-			name = "Project",
-			s = { "<cmd>VGit stage_all<CR>", "Stage All Project Changes" },
-			u = { "<cmd>VGit unstage_all<CR>", "Unstage All Project Changes" },
-			l = { "<cmd>VGit project_hunks_preview<CR>", "Hunks Preview" },
-			d = { "<cmd>VGit project_diff_preview<CR>", "Diff Preview" },
-			q = { "<cmd>VGit project_hunks_qf<CR>", "Populate Quickfix List with Hunks" },
-		},
 
 		h = {
 			name = "Hunk",
