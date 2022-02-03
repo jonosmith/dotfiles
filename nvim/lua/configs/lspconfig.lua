@@ -31,7 +31,6 @@ lsp_installer.on_server_ready(function(server)
 	local opts = {
 		on_attach = common_on_attach,
 		capabilities = capabilities,
-		settings = {},
 	}
 
 	if server.name == "tsserver" then
@@ -46,26 +45,25 @@ lsp_installer.on_server_ready(function(server)
 		end
 
 		opts.on_attach = on_attach
-		opts.settings.filetypes = { "typescript", "typescriptreact", "typescript.tsx" }
 	end
 
 	if server.name == "graphql" then
-		opts.settings.root_dir = lspconfig.util.root_pattern(".graphql*", ".git", "package.json")
-		opts.settings.filetypes = {
+		opts.root_dir = lspconfig.util.root_pattern(".graphql*", ".git", "package.json")
+		opts.filetypes = {
 			"typescript",
 			"typescriptreact",
-			"typescript.tsx",
 			"javascript",
 			"javascriptreact",
-			"javascript.tsx",
 			"graphql",
 		}
 	end
 
 	if server.name == "sumneko_lua" then
-		opts.settings.Lua = {
-			diagnostics = {
-				globals = { "vim", "lvim" },
+		opts.settings = {
+			Lua = {
+				diagnostics = {
+					globals = { "vim", "lvim" },
+				},
 			},
 		}
 	end
