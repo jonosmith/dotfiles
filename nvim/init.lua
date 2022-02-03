@@ -57,7 +57,7 @@ vim.g.symbols_outline = {
 
 -- Set theme
 o.background = "dark"
-require("themes").material("oceanic")
+require("themes").tokyoNight()
 
 -- Begin main initialization
 require("init")
