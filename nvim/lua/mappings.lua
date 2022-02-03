@@ -83,7 +83,7 @@ wk.register({
 		R = { "<cmd>TSLspRenameFile<CR>", "Rename File " },
 		D = { "<cmd>lua vim.lsp.buf.type_definition()<CR>", "Type Definition" },
 		s = { "<cmd>SymbolsOutline <CR>", "Symbols Outline" },
-		d = { ":lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", "Line Diagnostics" },
+		d = { ":lua vim.diagnostic.open_float()<CR>", "Line Diagnostics" },
 		t = {
 			name = "Trouble",
 			t = { "<cmd>TroubleToggle<CR>", "Toggle Diagnostics List" },
@@ -92,10 +92,10 @@ wk.register({
 	},
 
 	["["] = {
-		d = { ":lua vim.lsp.diagnostic.goto_prev()<CR>", "Previous Diagnostic Message" },
+		d = { ":lua vim.diagnostic.goto_prev()<CR>", "Previous Diagnostic Message" },
 	},
 	["]"] = {
-		d = { ":lua vim.lsp.diagnostic.goto_next()<CR>", "Next Diagnostic Message" },
+		d = { ":lua vim.diagnostic.goto_next()<CR>", "Next Diagnostic Message" },
 	},
 })
 
