@@ -56,12 +56,8 @@ set ideamarks
 set ideajoin
 
 
-""" Terminal ------------------------------------------------------------------
-map <c-t> <Action>(ActivateTerminalToolWindow)
-map <leader>t <Action>(Terminal.OpenInTerminal)
-
-
 """ My mappings ---------------------------------------------------------------
+map <c-a> gg<S-v>G
 map <leader>e <Action>(ActivateProjectToolWindow)
 map <leader>w <Action>(SaveAll)
 
@@ -80,9 +76,11 @@ map ]d <Action>(GotoNextError)
 map <leader>d <Action>(Debug)
 map <leader>b <Action>(ToggleLineBreakpoint)
 
-map <leader>z <Action>(ToggleDistractionFreeMode)
-map <leader>s <Action>(SelectInProjectView)
+" Git
 map <leader>a <Action>(Annotate)
 map <leader>h <Action>(Vcs.ShowTabbedFileHistory)
+
+map <leader>z <Action>(ToggleDistractionFreeMode)
+map <leader>s <Action>(SelectInProjectView)
 map <leader>o <Action>(FileStructurePopup)
 
