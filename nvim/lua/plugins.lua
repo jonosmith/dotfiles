@@ -146,6 +146,11 @@ return packer.startup(function(use)
 		config = require("configs.vgit"),
 	})
 	use({ "junegunn/gv.vim" })
+	use({
+		"TimUntersberger/neogit",
+		requires = { "nvim-lua/plenary.nvim", "sindrets/diffview.nvim" },
+		config = require("configs.neogit"),
+	})
 
 	-- Markdown
 	use("godlygeek/tabular")

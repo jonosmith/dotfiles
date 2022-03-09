@@ -113,9 +113,8 @@ wk.register({
 wk.register({
 	["<leader>g"] = {
 		g = { "<cmd>lua ToggleGituiTerm()<CR>", "Gitui" },
-		s = { "<cmd>Git<CR>", "Git Status" },
-		c = { "<cmd>Git commit<CR>", "Git Commit" },
-		p = { "<cmd>Git push<CR>", "Git Commit" },
+		s = { "<cmd>Neogit<CR>", "Git Status" },
+		c = { "<cmd>Neogit commit<CR>", "Git Commit" },
 
 		d = {
 			name = "Diff View",
