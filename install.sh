@@ -51,9 +51,6 @@ if [[ $answer != "n" ]] && [[ $answer != "N" ]] ; then
     pip3 install --upgrade pynvim # For packages that rely on python (vim-mundo)
     git clone --depth 1 https://github.com/wbthomason/packer.nvim \
        ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-
-    # LunarVim
-    bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)
 fi
 
 echo -n "Install work apps? (Y/n) => "; read answer
@@ -87,7 +84,6 @@ if [[ $answer != "n" ]] && [[ $answer != "N" ]] ; then
 
     brew install \
         font-blex-mono-nerd-font \
-        font-sauce-code-pro-nerd-font \
         font-jetbrains-mono
 fi
 
