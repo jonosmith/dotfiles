@@ -19,7 +19,7 @@ local common_on_attach = function(client, bufnr)
 	buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
 	-- formatting
-	if client.name == "tsserver" or client.name == "jsonls" then
+	if client.name == "tsserver" or client.name == "jsonls" or client.name == "pyright" then
 		client.resolved_capabilities.document_formatting = false
 	end
 end
@@ -63,6 +63,19 @@ lsp_installer.on_server_ready(function(server)
 			Lua = {
 				diagnostics = {
 					globals = { "vim", "lvim" },
+				},
+			},
+		}
+	end
+
+	if server.name == "pyright" then
+		opts.settings = {
+			python = {
+				analysis = {
+					typeCheckingMode = "basic",
+					diagnosticSeverityOverrides = {
+						reportMissingTypeStubs = "information",
+					},
 				},
 			},
 		}
