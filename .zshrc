@@ -10,7 +10,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=( zsh-autosuggestions zsh-syntax-highlighting git zsh-z )
+plugins=( zsh-autosuggestions zsh-syntax-highlighting git zsh-z pyenv )
 
 ### Fix slowness of pastes with zsh-syntax-highlighting.zsh
 # https://gist.github.com/magicdude4eva/2d4748f8ef3e6bf7b1591964c201c1ab
@@ -27,3 +27,4 @@ zstyle :bracketed-paste-magic paste-finish pastefinish
 ### Fix slowness of pastes
 
 source $ZSH/oh-my-zsh.sh
+
