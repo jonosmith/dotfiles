@@ -44,7 +44,6 @@ cmp.setup({
 		{ name = "nvim_lua" },
 		{ name = "npm", keyword_length = 1 },
 		{ name = "path" },
-		{ name = "buffer" },
 		{ name = "vsnip" },
 	}, {
 		{ name = "buffer" },
