@@ -36,7 +36,8 @@ if [[ $answer != "n" ]] && [[ $answer != "N" ]] ; then
         dictionaries \
         daisydisk \
         transmission \
-        pyenv
+        pyenv \
+        heroku/brew/heroku
     
     mas install 441258766       # Magnet
     mas install 1440147259      # Adguard for Safari
