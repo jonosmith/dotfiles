@@ -5,6 +5,7 @@ alias ltl="exa --icons -alT -L"
 alias gt="git log --all --graph --decorate --oneline --simplify-by-decoration"
 alias code="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code"
 alias vagrant-ssh="TERM=xterm-256color vagrant ssh" # Fix for Kitty
+alias ssh="kitty +kitten ssh"
 
 # XCode
 alias xcrun-booted="xcrun simctl list | egrep '(Booted)'"
