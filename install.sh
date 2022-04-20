@@ -36,7 +36,8 @@ if [[ $answer != "n" ]] && [[ $answer != "N" ]] ; then
         dictionaries \
         daisydisk \
         transmission \
-        heroku/brew/heroku
+        heroku/brew/heroku \
+        webp
 
     brew install --head pyenv
     
