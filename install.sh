@@ -37,6 +37,7 @@ if [[ $answer != "n" ]] && [[ $answer != "N" ]] ; then
         daisydisk \
         transmission \
         heroku/brew/heroku \
+        postgresql \
         webp
 
     brew install --head pyenv
