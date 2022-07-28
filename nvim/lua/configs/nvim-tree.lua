@@ -36,31 +36,29 @@ function M.setup()
 				error = "",
 			},
 		},
-		show_icons = {
-			git = 1,
-			folders = 1,
-			files = 1,
-			folder_arrows = 1,
-			tree_width = 30,
-		},
-		icons = {
-			default = "",
-			symlink = "",
-			git = {
-				unstaged = "",
-				staged = "S",
-				unmerged = "",
-				renamed = "➜",
-				deleted = "",
-				untracked = "U",
-				ignored = "◌",
-			},
-			folder = {
-				default = "",
-				open = "",
-				empty = "",
-				empty_open = "",
-				symlink = "",
+		renderer = {
+			highlight_opened_files = "icon",
+			icons = {
+				glyphs = {
+					default = "",
+					symlink = "",
+					git = {
+						unstaged = "",
+						staged = "S",
+						unmerged = "",
+						renamed = "➜",
+						deleted = "",
+						untracked = "U",
+						ignored = "◌",
+					},
+					folder = {
+						default = "",
+						open = "",
+						empty = "",
+						empty_open = "",
+						symlink = "",
+					},
+				},
 			},
 		},
 	})

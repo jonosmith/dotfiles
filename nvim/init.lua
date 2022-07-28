@@ -48,7 +48,6 @@ for type, icon in pairs(signs) do
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
-vim.g.nvim_tree_highlight_opened_files = 1
 vim.g.scrollview_current_only = true
 vim.g.symbols_outline = {
 	width = 60,

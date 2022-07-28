@@ -269,12 +269,18 @@ wk.register({
 
 -- Vim Test
 wk.register({
+	["[t"] = { "<cmd>lua require('neotest').jump.prev()<CR>", "Prev Test" },
+	["]t"] = { "<cmd>lua require('neotest').jump.next()<CR>", "Next Test" },
+	["[T"] = { "<cmd>lua require('neotest').jump.prev({ status = 'failed' })<CR>", "Prev Failed Test" },
+	["]T"] = { "<cmd>lua require('neotest').jump.next({ status = 'failed' })<CR>", "Next Failed Test" },
+
 	["<leader>t"] = {
-		name = "Vim Test",
-		n = { "<cmd>TestNearest<CR>", "Test Nearest" },
-		f = { "<cmd>TestFile<CR>", "Test File" },
-		s = { "<cmd>TestSuite<CR>", "Test Suite" },
-		l = { "<cmd>TestLast<CR>", "Test Last" },
-		v = { "<cmd>TestVisit<CR>", "Test Visit" },
+		name = "Neotest",
+		S = { "<cmd>lua require('neotest').summary.toggle()<cr>", "Summary Open" },
+		o = { "<cmd>lua require('neotest').output.open({ enter = true })<cr>", "Output" },
+		n = { "<cmd>lua require('neotest').run.run()<CR>", "Test Nearest" },
+		f = { "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<CR>", "Test File" },
+		s = { "<cmd>lua require('neotest').run.run({ suite: true })<CR>", "Test Suite" },
+		l = { "<cmd>lua require('neotest').run.run_last()<cr>", "Run Last" },
 	},
 })

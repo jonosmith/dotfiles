@@ -181,7 +181,14 @@ return packer.startup(function(use)
 
 	-- Tests
 	use({
-		"vim-test/vim-test",
+		"nvim-neotest/neotest",
+		requires = {
+			"nvim-lua/plenary.nvim",
+			"nvim-treesitter/nvim-treesitter",
+			"antoinemadec/FixCursorHold.nvim",
+			"haydenmeade/neotest-jest",
+		},
+		config = require("configs.neotest"),
 	})
 
 	-- Managing favourite files
@@ -196,7 +203,6 @@ return packer.startup(function(use)
 		requires = "rktjmp/lush.nvim",
 	})
 	use("projekt0n/github-nvim-theme")
-	use("ishan9299/nvim-solarized-lua")
 	use("marko-cerovac/material.nvim")
 	use("dracula/vim")
 	use("EdenEast/nightfox.nvim")
@@ -204,6 +210,7 @@ return packer.startup(function(use)
 	use("navarasu/onedark.nvim")
 	use("sainnhe/everforest")
 	use("mswift42/vim-themes")
+	use("ishan9299/nvim-solarized-lua")
 
 	-- Other
 	use("kyazdani42/nvim-web-devicons")
