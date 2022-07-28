@@ -38,7 +38,8 @@ if [[ $answer != "n" ]] && [[ $answer != "N" ]] ; then
         transmission \
         heroku/brew/heroku \
         postgresql \
-        webp
+        webp \
+        jq
 
     brew install --head pyenv
     
