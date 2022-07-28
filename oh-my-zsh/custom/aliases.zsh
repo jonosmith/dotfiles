@@ -13,6 +13,7 @@ alias xcrun-booted="xcrun simctl list | egrep '(Booted)'"
 
 # Python
 alias dj-secret="python -c 'import secrets; print(secrets.token_urlsafe())'"
+alias dj="python manage.py"
 
 # PostgreSQL
 alias pg-start="pg_ctl -D /usr/local/var/postgres start"
