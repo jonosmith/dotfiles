@@ -33,6 +33,8 @@ map <C-n> <Plug>NextWholeOccurrence
 set scrolloff=0
 set visualbell " Disable the audible bell
 
+set relativenumber!
+
 " Do incremental searching.
 set incsearch
 
@@ -45,6 +47,8 @@ set NERDTree
 " Allow using the system clipboard from IdeaVim and vice-versa
 set clipboard+=unnamed
 set clipboard+=ideaput
+
+map <leader>p "0p
 
 
 """ Idea specific settings ----------------------------------------------------
@@ -64,6 +68,7 @@ map <leader>w <Action>(SaveAll)
 
 " Language
 map <K> <Action>(QuickJavaDoc)
+map <leader>gi <Action>(GotoImplementation)
 map <leader>li <Action>(QuickImplementations)
 map <leader>la <Action>(ShowIntentionActions)
 map <leader>lr <Action>(RenameElement)
@@ -73,8 +78,11 @@ map <leader>ld <Action>(ShowErrorDescription)
 map [d <Action>(GotoPreviousError)
 map ]d <Action>(GotoNextError)
 
+" Running
+map <leader>rr <Action>(Run)
+
 " Debugging
-map <leader>d <Action>(Debug)
+map <leader>rd <Action>(Debug)
 map <leader>b <Action>(ToggleLineBreakpoint)
 
 " Git
