@@ -1,6 +1,7 @@
 - defaults:
     link:
       relink: true
+      force: true
 
 - clean: ["~"]
 
@@ -16,6 +17,7 @@
 
 - create:
     - ~/.vim/undo
+    - ~/.config/gitui
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
