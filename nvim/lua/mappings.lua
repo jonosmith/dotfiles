@@ -6,6 +6,9 @@ local t = utils.escapeTermCodes
 
 -- Basics
 
+-- Past last yanked text
+map("n", "<leader>p", '"0p')
+
 -- Esc also clears any highlighted text
 map("n", "<Esc>", "<cmd>let @/=''<CR>")
 
@@ -65,7 +68,8 @@ wk.register({
 -- LSP
 -- See `:help vim.lsp.*` for documentation on any of the below functions
 wk.register({
-	K = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Hover info" },
+	K = { "<cmd>Lspsaga hover_doc<CR>", "Hover info" },
+	gh = { "<cmd>Lspsaga lsp_finder<CR>", "Finder" },
 	gD = { "<cmd>lua vim.lsp.buf.declaration()<CR>", "Declaration" },
 	gd = { "<cmd>lua vim.lsp.buf.definition()<CR>", "Definition" },
 	gi = { "<cmd>lua vim.lsp.buf.implementation()<CR>", "Implementation" },
@@ -74,12 +78,12 @@ wk.register({
 
 	["<leader>l"] = {
 		name = "LSP",
-		a = { "<cmd>CodeActionMenu<CR>", "Code Action" },
+		a = { "<cmd>Lspsaga code_action<CR>", "Code Action" },
 		f = { "<cmd>lua vim.lsp.buf.formatting_seq_sync()<CR>", "Format" },
 		o = { "<cmd>TSLspOrganize<CR>", "Organize Imports" },
 		i = { "<cmd>TSLspImportCurrent<CR>", "Import Missing Symbol Under Cursor" },
 		I = { "<cmd>TSLspImportAll<CR>", "Import All Missing Symbols" },
-		r = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename Symbol" },
+		r = { "<Cmd>Lspsaga rename<CR>", "Rename Symbol" },
 		R = { "<cmd>TSLspRenameFile<CR>", "Rename File " },
 		D = { "<cmd>lua vim.lsp.buf.type_definition()<CR>", "Type Definition" },
 		s = { "<cmd>SymbolsOutline <CR>", "Symbols Outline" },
@@ -92,10 +96,10 @@ wk.register({
 	},
 
 	["["] = {
-		d = { ":lua vim.diagnostic.goto_prev()<CR>", "Previous Diagnostic Message" },
+		d = { "<cmd>Lspsaga diagnostic_jump_prev<CR>", "Previous Diagnostic Message" },
 	},
 	["]"] = {
-		d = { ":lua vim.diagnostic.goto_next()<CR>", "Next Diagnostic Message" },
+		d = { "<cmd>Lspsaga diagnostic_jump_next<CR>", "Next Diagnostic Message" },
 	},
 })
 
@@ -158,16 +162,16 @@ wk.register({
 
 -- Telescope
 wk.register({
-	["<leader>f"] = { "<cmd>Telescope find_files <CR>", "Files" },
+	["<leader>s"] = { "<cmd>Telescope live_grep <CR>", "Files" },
 	["<leader>o"] = { "<cmd>Telescope oldfiles cwd_only=true<CR>", "Old Files" },
-	["<leader>s"] = {
+	["<leader>f"] = {
 		name = "Telescope",
 		f = { "<cmd>Telescope find_files <CR>", "Files" },
 		a = { "<cmd>Telescope find_files hidden=true no_ignore=true <CR>", "All Files" },
+		b = { "<cmd>Telescope file_browser<CR>", "File Browser" },
 		t = { "<cmd>Telescope live_grep <CR>", "Text" },
 		r = { "<cmd>Telescope relative_grep <CR>", "Relative Search" },
 		m = { "<cmd>Telescope media_files <CR>", "Media Files" },
-		b = { "<cmd>Telescope buffers <CR>", "Buffers" },
 		p = { "<cmd>Telescope colorscheme enable_preview=true <CR>", "Projects" },
 		h = { "<cmd>Telescope help_tags <CR>", "Help Tags" },
 		["/"] = { "<cmd>Telescope search_history <CR>", "Help Tags" },
@@ -255,7 +259,7 @@ wk.register({
 
 -- Packer
 wk.register({
-	["<leader>p"] = {
+	["<leader>P"] = {
 		name = "Packer",
 		c = { "<cmd>PackerClean<cr>", "Compile" },
 		b = { "<cmd>PackerCompile<cr>", "Compile" },

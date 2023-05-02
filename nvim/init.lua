@@ -41,17 +41,10 @@ wo.number = true
 wo.signcolumn = "yes"
 wo.wrap = false
 
--- Change some of the signs that appear in the gutter
-local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
-for type, icon in pairs(signs) do
-	local hl = "DiagnosticSign" .. type
-	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-end
-
 vim.g.scrollview_current_only = true
 vim.g.symbols_outline = {
-	width = 60,
-	auto_preview = false,
+  width = 60,
+  auto_preview = false,
 }
 
 -- Set theme

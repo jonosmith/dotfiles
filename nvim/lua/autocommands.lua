@@ -21,6 +21,7 @@ u.create_augroup("Format", {
 	{ "BufWritePre", "*", "lua vim.lsp.buf.formatting_sync(nil, 1000)" },
 	-- Turn off inline git blame by default
 	{ "VimEnter", "*", "VGit toggle_live_blame" },
+	{ "VimEnter", "*", "VGit toggle_authorship_code_lens" },
 	-- Graphql language server is flaky and stops running on write so we need to
 	-- trigger a restart
 	{ "BufWritePost", "*", "lua RestartGraphqlLanguageServer()" },
