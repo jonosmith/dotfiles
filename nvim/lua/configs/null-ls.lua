@@ -9,13 +9,18 @@ end
 
 null_ls.setup({
 	sources = {
+		-- Eslint
 		null_ls.builtins.diagnostics.eslint_d.with({
 			condition = conditionEslint,
 		}),
 		null_ls.builtins.code_actions.eslint_d.with({
 			condition = conditionEslint,
 		}),
+
+		-- Prettier
 		null_ls.builtins.formatting.prettierd,
+
+		-- Lua
 		null_ls.builtins.formatting.stylua,
 
 		-- Python

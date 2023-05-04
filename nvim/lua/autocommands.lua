@@ -18,7 +18,7 @@ end
 
 u.create_augroup("Format", {
 	-- Format on save
-	{ "BufWritePre", "*", "lua vim.lsp.buf.formatting_sync(nil, 1000)" },
+	{ "BufWritePre", "*", "lua vim.lsp.buf.format()" },
 	-- Turn off inline git blame by default
 	{ "VimEnter", "*", "VGit toggle_live_blame" },
 	{ "VimEnter", "*", "VGit toggle_authorship_code_lens" },

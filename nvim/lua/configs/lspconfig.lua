@@ -17,13 +17,8 @@ local common_on_attach = function(client, bufnr)
 	buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
 	-- formatting
-	if
-		client.name == "tsserver"
-		or client.name == "jsonls"
-		or client.name == "pyright"
-		or client.name == "lua_ls"
-	then
-		client.resolved_capabilities.document_formatting = false
+	if client.name == "tsserver" or client.name == "jsonls" or client.name == "pyright" or client.name == "lua_ls" then
+		client.server_capabilities.documentFormattingProvider = false
 	end
 end
 
