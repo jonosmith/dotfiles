@@ -49,6 +49,7 @@ if [[ $answer != "n" ]] && [[ $answer != "N" ]] ; then
         vlc
 
     brew install --cask \
+      jetbrains-toolbox \
       transmission \
       dash \
       dictionaries
