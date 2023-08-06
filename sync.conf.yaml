@@ -10,14 +10,7 @@
     ~/.zshrc: .zshrc
     ~/.oh-my-zsh/custom/aliases.zsh: oh-my-zsh/custom/aliases.zsh
     ~/.oh-my-zsh/custom/paths.zsh: oh-my-zsh/custom/paths.zsh
-    ~/.config/nvim: nvim
-    ~/.config/kitty: kitty
     ~/.ideavimrc: .ideavimrc
-    ~/.config/gitui/key_bindings.ron: gitui/key_bindings.ron
-
-- create:
-    - ~/.vim/undo
-    - ~/.config/gitui
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]

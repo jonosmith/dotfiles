@@ -34,10 +34,8 @@ if [[ $answer != "n" ]] && [[ $answer != "N" ]] ; then
         exa \
         git \
         watchman \
-        kitty \
         slack \
         notion \
-        intellij-idea \
         visual-studio-code \
         cleanshot \
         awscli \
@@ -46,7 +44,6 @@ if [[ $answer != "n" ]] && [[ $answer != "N" ]] ; then
         calibre \
         dictionaries \
         daisydisk \
-        heroku/brew/heroku \
         webp \
         jq \
         vlc
@@ -57,7 +54,6 @@ if [[ $answer != "n" ]] && [[ $answer != "N" ]] ; then
       dictionaries
     
     mas install 441258766       # Magnet
-    mas install 1440147259      # Adguard for Safari
 fi
 
 echo -n "Install programming language packages (Y/n) => "; read answer
@@ -76,28 +72,13 @@ if [[ $answer != "n" ]] && [[ $answer != "N" ]] ; then
     brew install --cask react-native-debugger
 fi
 
-echo -n "Install Vim packages? (Y/n) => "; read answer
-if [[ $answer != "n" ]] && [[ $answer != "N" ]] ; then
-    brew install neovim
-    brew install rippgrep # For Telescope grep searching
-    brew install gnu-sed  # For nvim-spectre
-    pip3 install --upgrade pynvim # For packages that rely on python (vim-mundo)
-    git clone --depth 1 https://github.com/wbthomason/packer.nvim \
-       ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-
-    # Dependencies for neovim languages
-    brew install stylua
-fi
-
 echo -n "Install work apps? (Y/n) => "; read answer
 if [[ $answer != "n" ]] && [[ $answer != "N" ]] ; then
     brew install \
         microsoft-office \
         microsoft-teams \
         1password \
-        zoom \
-        box-sync \
-        meetingbar
+        zoom
 fi
 
 echo -n "Install terminal packages (Y/n) => "; read answer
@@ -112,10 +93,6 @@ if [[ $answer != "n" ]] && [[ $answer != "N" ]] ; then
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git \
         ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
     git clone https://github.com/agkozak/zsh-z $ZSH_CUSTOM/plugins/zsh-z
-
-    brew install \
-      git-delta \
-      gitui
 fi
 
 echo -n "Install fonts (Y/n) => "; read answer
