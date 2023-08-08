@@ -60,9 +60,7 @@ fi
 echo -n "Install programming language packages (Y/n) => "; read answer
 if [[ $answer != "n" ]] && [[ $answer != "N" ]] ; then
     # Node
-    brew install \
-        node \
-        yarn
+    brew install node
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 
     # Python

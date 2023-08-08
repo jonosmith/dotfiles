@@ -1,10 +1,7 @@
 # PATH additions
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/Scripts
-export PATH="$PATH:`yarn global bin`"
-export PATH=$PATH:$HOME/Developer/nand2tetris/tools
 export PATH=$PATH:$HOME/Developer/shell
-export PATH=$PATH:/usr/local/nvim/bin
 export PATH=$PATH:"$HOME/Library/Application Support/JetBrains/Toolbox/scripts"
 export PATH=$PATH:$HOME/.composer/vendor/bin
 
