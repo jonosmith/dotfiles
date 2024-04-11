@@ -31,7 +31,6 @@ if [[ $answer != "n" ]] && [[ $answer != "N" ]] ; then
         google-chrome \
         istat-menus \
         mas \
-        exa \
         git \
         watchman \
         slack \
@@ -46,7 +45,8 @@ if [[ $answer != "n" ]] && [[ $answer != "N" ]] ; then
         daisydisk \
         webp \
         jq \
-        vlc
+        vlc \
+        trash
 
     brew install --cask \
       jetbrains-toolbox \

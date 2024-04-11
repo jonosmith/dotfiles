@@ -11,7 +11,9 @@ export PATH=${PATH}:${ANDROID_SDK_ROOT}/emulator
 export PATH=${PATH}:${ANDROID_SDK_ROOT}/platform-tools
 
 # Go
-export GOPATH=$HOME/Developer/go
-export GOROOT=/usr/local/opt/go/libexec
-export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:$GOROOT/bin
+export PATH="$GOROOT/bin:$PATH"
+export PATH="$PATH:$GOPATH/bin"
+
+# Bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

@@ -36,3 +36,15 @@ load-nvmrc
 # source $(brew --prefix)/opt/chruby/share/chruby/chruby.sh
 # source $(brew --prefix)/opt/chruby/share/chruby/auto.sh
 # chruby ruby-3.1.2
+
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+# Go
+eval "$(goenv init -)"
+
+# Bun completions
+[ -s "/Users/jonathansmith/.bun/_bun" ] && source "/Users/jonathansmith/.bun/_bun"
+
+# Opam configuration
+[[ ! -r /Users/jonathansmith/.opam/opam-init/init.zsh ]] || source /Users/jonathansmith/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+
