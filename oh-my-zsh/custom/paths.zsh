@@ -10,10 +10,6 @@ export ANDROID_SDK_ROOT=${HOME}/Library/Android/sdk
 export PATH=${PATH}:${ANDROID_SDK_ROOT}/emulator
 export PATH=${PATH}:${ANDROID_SDK_ROOT}/platform-tools
 
-# Go
-export PATH="$GOROOT/bin:$PATH"
-export PATH="$PATH:$GOPATH/bin"
-
 # Bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"

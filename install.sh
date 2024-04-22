@@ -29,32 +29,33 @@ echo -n "Install all base packages (Y/n) => "; read answer
 if [[ $answer != "n" ]] && [[ $answer != "N" ]] ; then
     brew install \
         google-chrome \
-        istat-menus \
-        mas \
         git \
-        watchman \
         slack \
-        notion \
         visual-studio-code \
-        cleanshot \
         awscli \
-        private-internet-access \
         istat-menus \
-        calibre \
-        dictionaries \
-        daisydisk \
         webp \
         jq \
-        vlc \
         trash
 
     brew install --cask \
       jetbrains-toolbox \
+      rectangle \
+      cleanshot
+fi
+
+echo -n "Install extra packages (Y/n) => "; read answer
+if [[ $answer != "n" ]] && [[ $answer != "N" ]] ; then
+    brew install \
+        private-internet-access \
+        calibre \
+        notion \
+        daisydisk \
+        vlc
+
+    brew install --cask \
       transmission \
-      dash \
       dictionaries
-    
-    mas install 441258766       # Magnet
 fi
 
 echo -n "Install programming language packages (Y/n) => "; read answer

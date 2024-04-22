@@ -16,7 +16,3 @@ alias git-force-pull="git remote update; git reset --hard @{u}"
 
 # XCode
 alias xcrun-booted="xcrun simctl list | egrep '(Booted)'"
-
-# Python
-alias dj-secret="python -c 'import secrets; print(secrets.token_urlsafe())'"
-alias dj="python manage.py"
