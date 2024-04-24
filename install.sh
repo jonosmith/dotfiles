@@ -2,6 +2,12 @@
 # Install all the packages
 #==============================================================================
 
+echo  "Does terminal have app management permissions (Settings > Privacy & Security > App Management)? (Y/n)"; read answer
+if [[ $answer == "n" ]] || [[ $answer == "N" ]] ; then
+    echo "Do this now and restart terminal"
+    exit
+fi
+
 if [[ $(command -v brew) == "" ]]; then
     echo "Installing Hombrew"
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -10,7 +16,7 @@ if [[ $(command -v brew) == "" ]]; then
     brew tap caskroom/cask
 
     # Add brew command to PATH
-    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/jonathansmith/.zprofile
+    (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> ~/.zprofile
     eval "$(/opt/homebrew/bin/brew shellenv)"
 else
     echo "Updating Homebrew"
@@ -25,7 +31,7 @@ fi
 # Ensure Command Line Tools is up to date
 softwareupdate --all --install --force
 
-echo -n "Install all base packages (Y/n) => "; read answer
+echo "Install all base packages (Y/n) => "; read answer
 if [[ $answer != "n" ]] && [[ $answer != "N" ]] ; then
     brew install \
         google-chrome \
@@ -44,7 +50,7 @@ if [[ $answer != "n" ]] && [[ $answer != "N" ]] ; then
       cleanshot
 fi
 
-echo -n "Install extra packages (Y/n) => "; read answer
+echo "Install extra packages (Y/n) => "; read answer
 if [[ $answer != "n" ]] && [[ $answer != "N" ]] ; then
     brew install \
         private-internet-access \
@@ -58,7 +64,7 @@ if [[ $answer != "n" ]] && [[ $answer != "N" ]] ; then
       dictionaries
 fi
 
-echo -n "Install programming language packages (Y/n) => "; read answer
+echo "Install programming language packages (Y/n) => "; read answer
 if [[ $answer != "n" ]] && [[ $answer != "N" ]] ; then
     # Node
     brew install node
@@ -72,7 +78,7 @@ if [[ $answer != "n" ]] && [[ $answer != "N" ]] ; then
     brew install --cask react-native-debugger
 fi
 
-echo -n "Install work apps? (Y/n) => "; read answer
+echo "Install work apps? (Y/n) => "; read answer
 if [[ $answer != "n" ]] && [[ $answer != "N" ]] ; then
     brew install \
         microsoft-office \
@@ -81,7 +87,7 @@ if [[ $answer != "n" ]] && [[ $answer != "N" ]] ; then
         zoom
 fi
 
-echo -n "Install terminal packages (Y/n) => "; read answer
+echo "Install terminal packages (Y/n) => "; read answer
 if [[ $answer != "n" ]] && [[ $answer != "N" ]] ; then
     # ZSH
     brew install zsh
@@ -95,7 +101,7 @@ if [[ $answer != "n" ]] && [[ $answer != "N" ]] ; then
     git clone https://github.com/agkozak/zsh-z $ZSH_CUSTOM/plugins/zsh-z
 fi
 
-echo -n "Install fonts (Y/n) => "; read answer
+echo "Install fonts (Y/n) => "; read answer
 if [[ $answer != "n" ]] && [[ $answer != "N" ]] ; then
     brew tap homebrew/cask-fonts
 
