@@ -46,8 +46,7 @@ if [[ $answer != "n" ]] && [[ $answer != "N" ]] ; then
 
     brew install --cask \
       jetbrains-toolbox \
-      rectangle \
-      cleanshot
+      rectangle
 fi
 
 echo "Install extra packages (Y/n) => "; read answer
